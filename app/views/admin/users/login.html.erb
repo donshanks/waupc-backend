@@ -1,0 +1,21 @@
+<div class="page-title">
+	<h2>Login Required</h2>
+</div>
+<div style="color:red"><%= flash[:warning] %><%= flash[:message] %></div>
+<br />
+<% form_for :user, :method => :post do |f| %>
+
+	<%= f.error_messages %>
+	<%= f.label :login %><br />
+	<%= f.text_field :login, :size => 30 %><br />
+	<br />
+	<%= f.label :password %><br />
+	<%= f.password_field :password, :size => 30 %><br />
+	<br />
+	<%= f.submit "Login" %><br />
+	<br />
+	<%= link_to "Register", :action => 'signup' %> |
+	<%= link_to "Forgot my password", :action => 'forgot_password' %>
+	<br />
+
+<% end %>

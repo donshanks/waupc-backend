@@ -1,0 +1,17 @@
+<div class="page-title">
+	<h2>Site Registration</h2>
+</div>
+<br />
+<% form_for :user, :method => :post do |f| %>
+	<%= f.error_messages %>
+	<%= f.label :login %><br />
+	<%= f.text_field :login, :size => 30 %><br />
+	<br />
+	<%= f.label :password %><br />
+	<%= f.password_field :password, :size => 30 %><br />
+	<br />
+	<%= f.label :password_confirmation %><br />
+	<%= f.password_field :password_confirmation, :size => 30 %><br />
+	<br />
+	<%= f.submit "Signup" %>
+<% end %>

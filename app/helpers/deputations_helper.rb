@@ -1,0 +1,2 @@
+module DeputationsHelper
+end

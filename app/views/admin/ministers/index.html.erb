@@ -1,0 +1,29 @@
+<h1>Washington District Ministers</h1>
+
+<table class="ministers-table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+  </tr>
+
+<% for minister in @ministers %>
+  <tr>
+    <td><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister %></td>
+    <td><%=h minister.email %></td>
+    <td style="text-align:center;padding-right:0"><%=h minister.status %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= will_paginate @missionaries %>
+<br />
+<%= link_to 'New Minister', new_minister_path %> |
+<% if params[:sort] == 'active' then %>
+<%= link_to 'Show All Ministers', :sort => 'all' %> 
+<% else %>
+<%= link_to 'Show Only Active Ministers', :sort => 'active' %> 
+<% end %>
+<br />

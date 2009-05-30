@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bio_id: MyString
+  status: MyString
+  lastname: MyString
+  firstname: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  address2_type: MyString
+  address2: MyString
+  city2: MyString
+  state2: MyString
+  zip2: MyString
+  title: MyString
+  phone_home: MyString
+  phone_mobile: MyString
+  phone_fax: MyString
+  email: MyString
+  notes: MyString
+
+two:
+  bio_id: MyString
+  status: MyString
+  lastname: MyString
+  firstname: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  address2_type: MyString
+  address2: MyString
+  city2: MyString
+  state2: MyString
+  zip2: MyString
+  title: MyString
+  phone_home: MyString
+  phone_mobile: MyString
+  phone_fax: MyString
+  email: MyString
+  notes: MyString

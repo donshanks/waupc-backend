@@ -1,0 +1,20 @@
+<h1>Active District Churches</h1>
+
+<div class="church-listing">
+<dl>
+
+  <% for church in @churches %>
+    <dt><%= link_to church.church_name||'Unnamed', church %></dt>
+    <dd><%= (church.minister) ? church.minister.full_name : '' %></dd>
+  <% end %>
+
+</dl>
+</div>
+
+<br style="clear:both" />
+<br />
+
+<%= will_paginate @missionaries %>
+<br />
+<%= link_to 'New church', new_church_path %>
+<br />
