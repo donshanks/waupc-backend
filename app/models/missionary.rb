@@ -15,8 +15,12 @@ class Missionary < ActiveRecord::Base
 	end
 
 	def name
-		return firstname+' '+lastname
+		"#{firstname} #{lastname}"
 	end
+
+  def name_with_title
+    "Rev. #{firstname} #{lastname}"
+  end
 
 	def future_deputations
 		Deputation.find(:all, :conditions => ["date_end >= CURRENT_DATE AND missionary_id = ?",id])

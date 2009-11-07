@@ -1,4 +1,5 @@
 class DeputationsController < ApplicationController
+  layout nil
 
   # GET /deputations
   # GET /deputations.xml
@@ -73,6 +74,13 @@ class DeputationsController < ApplicationController
       }
 	  end
 
+  end
+
+  def foreign_missions
+      @deputations = Deputation.find(:all, 
+        :conditions => 'date_end >= CURRENT_DATE',
+        :order => 'date_start ASC'
+      )
   end
 
 end

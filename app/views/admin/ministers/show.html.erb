@@ -1,4 +1,3 @@
-
 <div class="minister-profile">
 
   <div class="minister-names">
@@ -6,72 +5,62 @@
     <h2><%= @minister.title %> <%= @minister.firstname %> <%= @minister.lastname %></h2>
   </div>
 
-  <div class="minister-contact">
-    <h4>Contact Information</h4>
-    <div class="minister-address">
-      <b>Phone home:</b> <%=h @minister.phone_home %><br />
-      <b>Phone mobile:</b> <%=h @minister.phone_mobile %><br />
-      <b>Phone fax:</b> <%=h @minister.phone_fax %><br />
-      <b>Email:</b> <%=h @minister.email %>
-    </div>
-    <% if !@minister.address.empty? %>
-    <div class="minister-address">
-      <b>Primary Address</b><br />
-      <div>
-        <%=h @minister.address %><br />
-        <%=h @minister.city %>, <%=h @minister.state %> &nbsp; <%=h @minister.zip %>
-      </div>
-    </div>
-    <% end %>
-    <% if !@minister.address2.empty? %>
-    <div class="minister-address">
-      <b><%=h @minister.address2_type %> Address</b><br />
-      <div>
+  <div class="minister-address">
+    <dl>
+      <dt>Home Phone:</dt>
+      <dd><%=h @minister.phone_home %></dd>
+
+      <dt>Mobile Phone:</dt>
+      <dd><%=h @minister.phone_mobile %></dd>
+      
+      <dt>Fax:</dt> 
+      <dd><%=h @minister.phone_fax %></dd>
+      
+      <dt>Email:</dt>
+      <dd><%=h @minister.email %></dd>
+
+      <dt>Instant Message:</dt>
+      <dd>&nbsp;</dd>
+
+      <dt>Twitter:</dt>
+      <dd>&nbsp;</dd>
+      
+      <% unless @minister.address.nil_or_empty? %>
+      <dt>Primary Address: </dt>
+      <dd>
+      <%=h @minister.address %><br />
+      <%=h @minister.city %>, <%=h @minister.state %> &nbsp; <%=h @minister.zip %>
+      </dd>
+      <% end %>
+
+      <% unless @minister.address2.nil_or_empty? %>
+      <dt><%=h @minister.address2_type %> Address</dt>
+      <dd>
         <%=h @minister.address2 %>
         <%=h @minister.city2 %>, <%=h @minister.state2 %> &nbsp;<%=h @minister.zip2 %>
-      </div>
-    </div>
-    <% end %>
-  </div>
-  <div class="minister-bio">
-    <h4>Biographical Information</h4>
-    <div class="bio-content">
-      <% if @minister.bio %>
-      <% if @minister.bio.photo_link %>
-      <div class="minister-photo">
-        <img src="<%= @minister.bio.photo_link -%>" /><br />
-        <span class="photo-caption"><%= @minister.bio.photo_caption %></span>
-        <br />
-        <br />
-        <br />
-        <address>
-        <%= @minister.bio.address %>
-        </address>
-      </div>
-      <span class="minister-roles">
+      </dd>
       <% end %>
-      <% @minister.roles.each do |role| %>
-      <%= role.name %><br />
-      <% end %>
-      </span>
-      <br />
-       <div style="margin-left:150px">
-      <%= @minister.bio.content %>
-      </div>
-      <% else %>
-        No Biographical Information
-      <% end %>
-    </div>
+
+      <dt>Roles:</dt>
+      <dd>
+        <% @minister.roles.each do |role| %>
+        <%= role.name %><br />
+        <% end %>
+      </dd>
+
+      <dt>Notes:</dt>
+      <dd><%=h @minister.notes %></dd>
+
+      <dt>&nbsp;</dt>
+      <dd>&nbsp;</dd>
+      
+    </dl>
   </div>
-  <div class="minister-notes">
-    <h4>Notes</h4>
-    <div>
-      <%=h @minister.notes %>
-    </div>
-  </div>
+    
+  <br style="clear:both" />
+  <%= link_to 'Edit', edit_minister_path(@minister) %> |
+  <%= link_to 'Back', :action => 'index' %>
+  <br />
+
 </div>
 
-<br />
-<%= link_to 'Edit', edit_minister_path(@minister) %> |
-<%= link_to 'Back', :action => 'index' %>
-<br />

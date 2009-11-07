@@ -104,16 +104,12 @@ class Admin::BookingsController < ApplicationController
 			    end
 		    end
 		    format.js do
-			    render :update do |page|
-		  		  page.alert('Update Successful')
-			    end
+			    render :json => { :id => params[:id], :success => true, :status => @booking.status }.to_json
 		    end
       else
         format.html { render :action => "edit" }
 		    format.js do
-			    render :update do |page|
-				    page.alert('Update Failed')
-		  	  end
+			    render :json => { :id => params[:id], :success => false, :status => @booking.status }.to_json
 	      end
 	    end
     end

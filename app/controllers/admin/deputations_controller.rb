@@ -23,6 +23,7 @@ class Admin::DeputationsController < ApplicationController
   # GET /deputations/1
   def show
     @deputation = Deputation.find(params[:id])
+		@churches = Church.find(:all, :conditions => "status = 'active'", :order => 'church_name ASC')
 
     respond_to do |format|
       format.html # show.html.erb

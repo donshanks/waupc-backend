@@ -12,6 +12,10 @@ class Deputation < ActiveRecord::Base
 		end
 	end
 
+  def bookings_available
+    Booking.find(:all, :conditions => ['deputation_id = ? AND status = ?', id, 'open'])
+  end
+
 	def bookings
 		Booking.find(:all, :conditions => ['deputation_id = ?',id])
 	end

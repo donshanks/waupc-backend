@@ -6,7 +6,7 @@
   <b>Outreach Cities: </b><%= @church.outreach_cities %><br />
   <b>Languages: </b><%= @church.languages %><br />
   <br />
-  <b>Website: </b><%= link_to @church.web %><br />
+  <b>Website: </b><%= link_to @church.web, @church.web %><br />
   <b>Email: </b><%= mail_to @church.email %><br />
   <br />
   <b>Phone 1: </b><%= @church.phone %><br />

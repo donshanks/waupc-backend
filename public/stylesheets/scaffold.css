@@ -53,10 +53,11 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 .deputation-booking-table th { background-color:#e0e0ef; color:steelblue }
-.deputation-booking-table td.col1 { text-align:center }
-.deputation-booking-table .col1, .deputation-booking-table .col3 { width:90px }
-.deputation-booking-table .col2 { width:110px }
-.deputation-booking-table .col4 { width:465px }
+.deputation-booking-table td.col1 { text-align:right }
+.deputation-booking-table .col1 { width:120px; padding-right:3px }
+.deputation-booking-table .col2 { width:84px; text-align:center }
+.deputation-booking-table .col3 { width:86px; text-align:center }
+.deputation-booking-table .col4 { width:455px }
 .deputation-booking-table .col5 { width:70px }
 .deputation-booking-table .col6 { width:130px }
 .deputation-booking-table .short-box { width:84px }
@@ -69,6 +70,12 @@ a:hover { color: #fff; background-color:#000; }
 .deputations-table.edit th { padding-left:.5em; padding-right:.5em; text-align:right }
 .deputations-table.edit td { padding-left:.5em; padding-right:1em }
 .deputations-table.edit td input { width:400px }
+
+.documents-table th { background-color:#e0e0ef; color:steelblue }
+.documents-table th.col1 { padding-left:4px; padding-right:4px; width:200px }
+.documents-table th.col2 { min-width:400px }
+.documents-table td { border-bottom:solid 1px #f3f3f3 }
+.documents-table td.col2 { padding-left:.5em; padding-right:1em }
 
 .header-bar { 
 	width:100%;
@@ -103,35 +110,49 @@ a:hover { color: #fff; background-color:#000; }
 .minister-profile .minister-names .minister-status { margin-top:20px; margin-right:2px; float:right; font-weight:bold }
 .minister-names .active { color:green }
 .minister-names .inactive { color:red }
-.minister-profile .minister-bio,
-.minister-profile .minister-notes,
-.minister-profile .minister-contact 
-  { border:solid 1px steelblue; margin:3px }
-.minister-profile .minister-contact,
-.minister-profile .minister-bio,
-.minister-profile .minister-notes
-  { width:688px; min-height:5em }
-.minister-profile .minister-bio .bio-content { padding:5px }
-.minister-profile * .minister-address { width:220px; float:left }
+.minister-profile .minister-address { padding-left:0.5em; line-height:1.8 }
+.minister-profile .minister-address dt { font-weight:bold; width:130px; float:left; clear:both }
+.minister-profile .minister-address dd { float:left }
 .minister-profile * h4 { margin:1px; padding:3px; background-color:steelblue; color:white }
-.minister-profile .minister-notes div,
-.minister-profile .minister-contact div { padding:3px }
-.minister-profile .minister-address div { padding-top:0px; padding-bottom:0px }
-.minister-profile .minister-contact { height:120px }
-.minister-profile .minister-photo { float:left; width:150px }
-.minister-profile .minister-photo .photo-caption { font-size:80%; color:dodgerblue; white-space:wrap }
 .minister-profile .minister-roles { font-weight:bold; font-style:italic }
 
 .ministers-table td { padding-right:1em }
 
+.minister-listing div { line-height:1.5; border:solid 1px white }
+.minister-listing .col1 { clear:left; float:left; width:200px }
+.minister-listing .col2 { float:left; width:220px; overflow:hidden }
+.minister-listing .col3 { float:left; width:80px; text-align:center }
+.minister-listing .header { font-weight:bold; background-color:#e0e0ef; color:steelblue }
+
+.minister-editing dl { line-height:1.8 }
+.minister-editing dl dt { clear:left; float:left; width:130px; font-weight:bold }
+.minister-editing dl dt { float:left }
+
 .menu-link { font-size:80%;padding-right:.5em }
 .menu-link a { color:white }
 
+.document-editing dl { line-height: 2 }
+.document-editing dl input { width: 280px; padding-left:3px; border:solid 1px #d0d0d0 }
+.document-editing dl textarea { width: 280px; padding-left:3px; border:solid 1px #d0d0d0; height:110px }
+.document-editing dl input.read_only { text-align:center; width:140px; padding-left:0px; background:#fff; border:0px }
+.document-editing dl select { width: 285px; padding-left:3px; border:solid 1px #d0d0d0 }
+.document-editing dl dt { font-weight:bold; width:150px; text-align:right; padding-right:1em; clear:both; float:left; }
+.document-editing dl dd { float:left; margin:0 0 0.5em 0.25em }
+
 .church-editing dl { line-height: 2 }
-.church-editing dl input { width: 320px; padding-left:3px }
+.church-editing dl input { width: 280px; padding-left:3px; border:solid 1px #d0d0d0 }
+.church-editing dl input.read_only { text-align:center; width:140px; padding-left:0px; background:#fff; border:0px }
+.church-editing dl select { width: 285px; padding-left:3px; border:solid 1px #d0d0d0 }
 .church-editing dl dt { font-weight:bold; width:150px; text-align:right; padding-right:1em; clear:both; float:left; }
 .church-editing dl dd { float:left; margin:0 0 0.5em 0.25em }
 
-.church-listing dl { line-height: 1.5 }
-.church-listing dl dt { font-weight:bold; width:230px; padding-right:1em; clear:both; float:left; }
-.church-listing dl dd { float:left; margin:0 0 0 0.25em }
+.church-listing dl { line-height: 1.8 }
+.church-listing-row { clear:both }
+.church-listing .header div { font-weight:bold; background-color:#e0e0ef; color:steelblue }
+.church-listing-row div { float:left; padding-right:1em; padding-left:.5em }
+.church-listing-row div.col1 { font-weight:bold; width:320px }
+.church-listing-row div.col2 { margin:0 0 0 0.25em; width:160px }
+.church-listing-row div.col3 { margin:0 0 0 0.25em; width:200px }
+.church-listing dt.header, .church-listing dd.header { 
+  font-weight:bold; background-color:#e0e0ef; color:steelblue }
+

@@ -1,4 +1,6 @@
 class Church < ActiveRecord::Base
+  belongs_to :minister
+  attr_accessor :lat1, :lon1, :distance, :googlelink
 
 	def selector_name
 		"#{church_name} , #{physical_city} (#{pastor})"

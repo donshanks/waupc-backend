@@ -11,9 +11,11 @@ class Admin::ChurchesController < ApplicationController
     @churches = Church.paginate(:all,
       :conditions => "status = 'active'",
       :page => params[:page],
-      :per_page => 20,
+      :per_page => 25,
       :order => "#{sortby} #{sortdir}"
     )
+
+    @half_way = (@churches.length/2).round
 
     respond_to do |format|
       format.html # index.html.erb

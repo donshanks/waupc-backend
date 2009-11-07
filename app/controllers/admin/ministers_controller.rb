@@ -5,14 +5,18 @@ class Admin::MinistersController < ApplicationController
   # GET /ministers
   def index
 
+    per_page = params[:pp] || 40
+
 		if params[:sort] == 'active'
-				@ministers = Minister.paginate_by_sql [ "SELECT * FROM ministers WHERE status = 'active' ORDER BY lastname ASC" ],
-					:page => params[:page], 
-					:per_page => 16 
+				@ministers = Minister.paginate_by_status 'active', 
+          :page => params[:page], 
+          :per_page => per_page, 
+          :order => 'lastname ASC'
 		else 
-				@ministers = Minister.paginate :page => params[:page], 
-					:per_page => 16, 
-					:order => 'lastname ASC'
+				@ministers = Minister.paginate :all,
+          :page => params[:page], 
+          :per_page => per_page , 
+          :order => 'lastname ASC'
 		end
 
     respond_to do |format|

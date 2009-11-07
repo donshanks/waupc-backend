@@ -19,11 +19,12 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-#ActionController::AbstractRequest.relative_url_root = "/fmissions"
-
 gem 'mislav-will_paginate', '~> 2.2'
+
 require 'will_paginate'
 require 'auto_complete'
+require 'upload_column'
+
 require 'ext/string'
 require 'ext/nil'
 

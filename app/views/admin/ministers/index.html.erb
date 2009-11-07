@@ -1,22 +1,41 @@
-<h1>Washington District Ministers</h1>
+<div class="page-title">
+  <h2>District Ministers</h2>
+</div>
 
-<table class="ministers-table">
+<table border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Status</th>
-  </tr>
+    <td style="vertical-align:top">
+      <div class="minister-listing">
 
-<% for minister in @ministers %>
-  <tr>
-    <td><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister %></td>
-    <td><%=h minister.email %></td>
-    <td style="text-align:center;padding-right:0"><%=h minister.status %></td>
+        <div class="col1 header">Name</div>
+        <div class="col2 header">Email</div>
+        <div class="col3 header">Status</div>
+
+        <% 0.upto( (@ministers.length/2)-1 ) do |i| minister = @ministers[i]  %>
+          <div class="col1"><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister -%></div>
+          <div class="col2" title="<%=h minister.email -%>"><%=h minister.email -%></div>
+          <div class="col3"><%=h minister.status -%></div>
+        <% end %>
+
+      </div>
+    </td>
+    <td style="padding-left:.5em;vertical-align:top">
+      <div class="minister-listing">
+
+        <div class="col1 header">Name</div>
+        <div class="col2 header">Email</div>
+        <div class="col3 header">Status</div>
+
+        <% (@ministers.length/2).upto(@ministers.length-1)   do |i| minister = @ministers[i]  %>
+          <div class="col1"><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister -%></div>
+          <div class="col2" title="<%=h minister.email -%>"><%=h minister.email -%></div>
+          <div class="col3"><%=h minister.status -%></div>
+        <% end %>
+
+      </div>
+    </td>
   </tr>
-<% end %>
 </table>
-
-<br />
 
 <%= will_paginate @missionaries %>
 <br />

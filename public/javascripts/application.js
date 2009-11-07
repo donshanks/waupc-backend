@@ -2,25 +2,11 @@
 // This file is automatically included by javascript_include_tag :defaults
 var gapi = 'ABQIAAAA4QvaOZF0TyrEiBjftCedLhSuQ5C3NrpuFfvdIEwLzD_XE8o3LRSVdrSnnSrdVxlO0vwwpXf_lEcCJg';
 
-var booking_update_complete = function(req) {
-  alert('ii');
-//	alert( Object.inspect(req) );
-}
-
-$(function() {
-	var tbls = $('.deputation-booking-table');
-	for (i=0;i<tbls.length;i++) {
-		var id = tbls[i].id.substr(11);
-		toggleConfirmButton(id);
-	}
-});
-
-function toggleConfirmButton(i) {
-	if ( i ) {
-		if ( $('booking_status_'+i).selectedIndex == 1 ) {
-			$('btnConfirm_'+i).disabled=false;
-		}
-	}
+function booking_update_complete(req) {
+  var obj =$.evalJSON( req.responseText );
+	$('btnConfirm_'+obj.id).disabled=(obj.status!='booked');
+  var msg=(obj.success)?'Update successful!':'Update failed!';
+  alert(msg);
 }
 
 function GoogleGeocode(apiKey) {
