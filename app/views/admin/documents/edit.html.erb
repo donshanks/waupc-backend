@@ -1,0 +1,12 @@
+<h1>Editing documents</h1>
+
+<% form_for(@documents) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @documents %> |
+<%= link_to 'Back', documents_path %>

@@ -1,0 +1,25 @@
+<h1><%= @document.caption -%></h1>
+
+<div class="document-editing">
+
+  <dl>
+    <dt>View</dt>
+    <dd><%=link_to  @document.caption, @document.filename.url -%></dd>
+
+    <dt>Abstract</dt>
+    <dd><%= @document.abstract -%></dd>
+
+    <dt>File Type</dt>
+    <dd><%= @document.mime_type -%></dd>
+
+    <dt>Last Updated</dt>
+    <dd><%= @document.created_at -%></dd>
+
+  </dl>
+
+  <br style="clear:both" />&nbsp;
+
+</div>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', document_path %>

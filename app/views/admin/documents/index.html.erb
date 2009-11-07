@@ -1,0 +1,30 @@
+<div class="page-title">
+	<h2>Deputations</h2>
+</div>
+<div class="main-content">
+
+	<p style="color: green"><%= flash[:notice] %></p>
+
+  <%= link_to 'New document', new_document_path %>
+
+  <br />&nbsp;
+  
+  <table class="documents-table">
+    <tr>
+      <th class="col1">Caption</th>
+      <th class="col2">Description</th>
+    </tr>
+
+  <% for document in @documents %>
+    <tr>
+      <td><%= link_to document.caption, edit_document_path(document) -%></td>
+      <td><%= document.abstract -%></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New document', new_document_path %>
+
+</div>

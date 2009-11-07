@@ -1,0 +1,54 @@
+<% @pageTitle = 'Foreign Missions - Reserve a Missionary on Deputation' %>
+<h2 class="missionary-title" style="text-decoration:underline">
+  Foreign Missions Deputation Schedule
+</h2>
+<% if !flash[:notice].nil_or_empty? then -%>
+<div style="padding-left:2.5em;padding-top:1em;color:#d00;font-weight:bold"><%= flash[:notice] %></div>
+<% else -%>
+<br />
+<% end -%>
+
+<div style="padding-left:1.5em">
+  <% form_for :booking, @booking, :method => :post, :url => { :action => 'update' } do |f| %>
+  <%= f.hidden_field :id %>
+  <dl class="reservation-update">
+    <dt>Missionary</dt>
+      <dd><%= @booking.deputation.missionary.name_with_title %></dd>
+    <dt>Labor</dt>
+      <dd><%= @booking.deputation.missionary.labor %></dd>
+    <br style="clear:both" />
+    <div class="in-line header">Booking Date</div>
+    <div class="in-line"><%= @booking.date_of %></div>
+    <div class="in-line header">Select a time</div>
+    <div class="in-line"><%= f.time_select :time_of, {
+                                           :simple_time_select => true,
+                                           :lower_limit => 60*9, 
+                                           :upper_limit => 60*22, 
+                                           :minute_interval => 30, 
+                                           :time_separator => '' } %></div>
+    <br style="clear:both" />
+    <br style="clear:both" />
+    <dt>Your Church</dt>
+      <dd><%= f.select :church_id, 
+                       @churches.collect {|p| ["#{p.church_name} (#{p.physical_city})", p.id]}.sort, 
+                       :include_blank => 'Select Church' %></dd>
+    <dt>Your Email</dt>
+      <dd><%= f.text_field :email %></dd>
+    <dt>Special Notes</dt>
+      <dd><%= f.text_area :notes %></dd>
+    <br />
+    <div class="in-line header">Username</div>
+    <div class="in-line"><%= text_field_tag 'uname', nil, { :class => 'short-text', :autocomplete => 'off' } %></div>
+    <div class="in-line header">Password</div>
+    <div class="in-line"><%= password_field_tag 'pwd', nil, { :class => 'short-text', :autocomplete => 'off' } %></div>
+    <br /><br />
+    <div class="in-line header">&nbsp;</div>
+    <div class="in-line"><%= submit_tag %></div>
+  </dl>
+  <% end %>
+</div>
+<script type="text/javascript">
+</script>
+
+
+

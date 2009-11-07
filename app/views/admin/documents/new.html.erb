@@ -1,0 +1,36 @@
+<h1>Upload a new document</h1>
+
+<div class="document-editing">
+
+<% upload_form_for :documents, :url => { :action => :create } do |f| %>
+  <%= f.error_messages %>
+
+  <dl>
+    <dt><%= f.label :caption -%></dt>
+    <dd><%= f.text_field :caption %></dd>
+    
+    <dt><%= f.label :abstract -%></dt>
+    <dd><%= f.text_area :abstract -%></dd>
+
+    <dt>File Type</dt>
+    <dd><%= f.select :mime_type, 
+      Document::MIMETYPES.sort , 
+      {:include_blank => true} -%></dd>
+
+    <dt><%= f.label :filename -%></dt>
+    <dd><%= f.upload_column_field :filename -%></dd>
+
+    <dt>&nbsp;</dt>
+    <dd>&nbsp;</dd>
+
+    <dt>&nbsp;</dt>
+    <dd><%= f.submit "Create" %></dd>
+  </dl>
+
+  <br style="clear:both" />&nbsp;
+
+<% end %>
+
+</div>
+
+<%= link_to 'Back', documents_path %>

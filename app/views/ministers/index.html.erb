@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+		<meta name="description" content="The listing of churches in the Washington State District of the United Pentecostal Church International. This listing is searchable by City, Pastor and Zip Code. The listings contain contact information for the churches." />
+		<meta name="keywords" content="Churches searchable listings websites contact information pastore home missions Jesus Christ Salvation Name Pentecost Pentecostal Apostolic Eternal Life Acts 2:38 God Washington State District United Pentecostal Church Internal Bible Holy Ghost Global Impact Media Missions Apostolic Man Foregin Missions BREAD B.R.E.A.D. WAUPC" />
+		<link rel="stylesheet" href="/stylesheets/fh.css" type="text/css" id="default-style" media="all" />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.tablesorter.min.js"></script>
+		<title></title>
+  </head>
+  <body>
+    <div style="width:770px;margin:auto;">
+      <table cellpadding="0" cellspacing="0" class="minister-list" summary="All Ministers" id="listOfMinisters">
+        <thead>
+        <tr class="header">
+          <th class="col1">Last Name</th>
+          <th class="col2">First Name</th>
+          <th class="col3">E-mail</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <% i=0 -%>
+        <% @ministers.each do |minister| -%>
+          <% i +=1 %>
+          <tr class="<%= i % 2 == 0 ? 'odd' : 'even' %>">
+            <td><%= minister.lastname %> </td>
+            <td><%= minister.firstname %> </td>
+            <% if minister.email.nil_or_empty? %>
+            <td class="nomail">no e-mail available</td>
+            <% else %>
+            <td class="mail"><%= mail_to(minister.email,minister.email) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <br />
+      <div>
+        If you feel any of the information listed below is incorrect or missing, contact the 
+        <script type="text/javascript" language="javascript">
+        {document.write(String.fromCharCode(60,97,32,104,114,101,102,61,34,109,97,105,108,116,111,58,119,101,98,100,101,118,64,119,97,117,112,99,46,110,101,116,34,32,62,87,101,98,32,68,101,118,101,108,111,112,109,101,110,116,32,84,101,97,109,60,47,97,62))}
+        </script>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function() { 
+        $("#listOfMinisters").tablesorter(); 
+      }); 
+    </script>
+  </body>
+</html>
