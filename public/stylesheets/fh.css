@@ -1,0 +1,93 @@
+body, table { font-family:arial,helvetica,sans-serif; font-size:10pt }
+.church-list .col1 { width:80px; text-align:center }
+.church-list .col2 { width:290px }
+.church-list .col3 { width:160px }
+.church-list .col4 { width:240px }
+.church-list .moreinfo { text-decoration:underline; color:blue }
+
+.minister-list .col1 { width:100px; text-align:center }
+.minister-list .col2 { width:100px }
+.minister-list .col3 { width:260px }
+
+/* tables */
+.church-list, .minister-list {
+  font-family:arial,helvetica,sans-serif; font-size:10pt; background-color: #CDCDCD; text-align:left;
+}
+.church-list-holder { height:440px; overflow:auto }
+.church-list thead tr th, .church-list tfoot tr th, .minister-list thead tr th, .minister-list tfoot tr th {
+	background-color: #e6EEEE; border: 1px solid #fff; border-collapse:collapse; padding: 4px;
+}
+.church-list thead tr .header, .minister-list thead tr .header {
+	background-image: url(/images/bg.gif); background-repeat: no-repeat; background-position: center right; cursor: pointer;
+}
+.church-list tbody td, .minister-list tbody td {
+	color: #3D3D3D; padding: 4px; background-color: #FFF; vertical-align: top;
+}
+.church-list tbody tr.odd td, .minister-list tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+.church-list thead tr .headerSortUp, .minister-list thead tr .headerSortUp {
+	background-image: url(/images/asc.gif);
+}
+.church-list thead tr .headerSortDown, .minister-list thead tr .headerSortDown {
+	background-image: url(/images/desc.gif);
+}
+.church-list thead tr .headerSortDown, .church-list thead tr .headerSortUp,
+.minister-list thead tr .headerSortDown, .minister-list thead tr .headerSortUp {
+  background-color: #8dbdd8;
+}
+
+.church-detail { 
+  border:solid 1px #223c6f; height:90px; display:none; position:absolute; height:120px;
+  left:16px; width:95%; background-color:white; top:20px
+}
+.church-detail .close-link { text-decoration:none; color:black; background:lightgrey; padding:2px }
+.church-detail .contact-info { 
+  width:350px; vertical-align:top; padding:3px; float:left; height:106px; clear:left 
+}
+.church-detail .contact-info dl { 
+  margin:0px 
+}
+.church-detail .contact-info dt { 
+  float:left; font-weight:bold; padding-right:7px 
+}
+.church-detail .physical-address { 
+  width:210px; vertical-align:top; padding:3px; float:left; height:106px 
+}
+
+.email-addr { width:400px }
+.resv-notes { width:400px; height:80px }
+.missionary-title { margin-bottom:0px }
+
+.day-list { list-style-type:none; line-height:1.8; width:60% }
+.day-list li a { text-decoration:none; font-size:110% }
+.day-list li:hover { background-color:#f0f0f0 }
+
+.reservation-row { clear:both; padding:6px 0px }
+.reservation-row div { float:left }
+.reservation-row .more { width:75px }
+.reservation-row .more  a { color:blue }
+.reservation-row .name { width:150px }
+.reservation-row .labor { width:350px }
+.reservation-row .dates { width:130px }
+
+.reservation-schedule { clear:both; display:none }
+.reservation-schedule .schedule { width:705px; border-top:2px solid #233c6f; margin:5px 5px 0px }
+.reservation-schedule .schedule th, .reservation-schedule .schedule td { padding:2px }
+.reservation-schedule .schedule th { background-color:#223c6f; color:white; font-size:12px }
+.reservation-schedule .schedule td { background-color:white; color:#223c6f; font-size:11px }
+.reservation-schedule .schedule .day { width:40px }
+.reservation-schedule .schedule .date { width:100px }
+.reservation-schedule .schedule .time { width:70px }
+.reservation-schedule .schedule .city { width:140px }
+.reservation-schedule .schedule .church { width:170px }
+.reservation-schedule .schedule .pastor { width:160px }
+
+dl.reservation-update { line-height:1.8 }
+dl.reservation-update dt { font-weight:bold; float:left; clear:left; width:110px; padding-right:6px; text-align:right }
+dl.reservation-update dd input { width:318px }
+dl.reservation-update dd textarea { width:318px; height:100px; margin-top:5px }
+dl.reservation-update div.in-line { width:110px; float:left }
+dl.reservation-update div.in-line.header { font-weight:bold; padding-right:6px; text-align:right }
+div.in-line input.short-text { width:110px }
+
