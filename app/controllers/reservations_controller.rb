@@ -11,7 +11,19 @@ class ReservationsController < ApplicationController
     )
   end
 
+  def foreign_missions
+    @deputations = Deputation.find(:all, 
+      :conditions => 'date_end >= CURRENT_DATE',
+      :order      => 'date_start ASC',
+      :limit      => params[:l] || 20
+    )
+    render :action => 'index', :layout => 'fhview_inline'
+  end
+
   def show
+    unless params[:dep_id].blank? then
+      @deputation = Deputation.find(params[:dep_id])
+    end
   end
 
   def book

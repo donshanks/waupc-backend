@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.connect 'foreign_missions', 
-              :controller => 'deputations', 
-              :action     => 'foreign_missions'
+  map.foriegn_missions 'foreign_missions', 
+                       :controller => 'reservations', 
+                       :action     => 'foreign_missions'
 
   map.with_options :controller => 'reservations' do |m|
     m.show_reservations 'reservations', :action => 'index'
