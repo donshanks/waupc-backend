@@ -1,3 +1,5 @@
+require 'uri'
+
 class ApplicationController < ActionController::Base
   helper :all
   filter_parameter_logging "password", "password_confirmation"

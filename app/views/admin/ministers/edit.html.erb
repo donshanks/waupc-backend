@@ -1,6 +1,10 @@
-<h1>Editing </h1>
+<% content_for :page_title do %>
+  <div>Washington District UPC Ministers</div>
+<% end %>
 
-<div class="minister-editing" style="float:left">
+<h1>Editing - <%= @ministers.full_name %></h1>
+
+<div class="admin-minister-editing" style="float:left">
 
   <% form_for(@ministers) do |f| %>
   <%= f.error_messages %>

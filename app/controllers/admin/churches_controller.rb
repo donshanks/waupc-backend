@@ -1,9 +1,12 @@
 class Admin::ChurchesController < ApplicationController
-  layout "admin"
+  layout "fhview"
   before_filter :login_required
 
   # GET /churches
   def index
+
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Churches'
 
 		sortby = params[:sort] || 'church_name'
     sortdir = params[:d] || 'ASC'
@@ -11,11 +14,9 @@ class Admin::ChurchesController < ApplicationController
     @churches = Church.paginate(:all,
       :conditions => "status = 'active'",
       :page => params[:page],
-      :per_page => 25,
+      :per_page => 20,
       :order => "#{sortby} #{sortdir}"
     )
-
-    @half_way = (@churches.length/2).round
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +27,9 @@ class Admin::ChurchesController < ApplicationController
   def show
     @church = Church.find(params[:id])
 
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Church Information'
+
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -35,6 +39,9 @@ class Admin::ChurchesController < ApplicationController
   def new
     @church = Church.new
 
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Church Information'
+
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -43,11 +50,17 @@ class Admin::ChurchesController < ApplicationController
   # GET /churches/1/edit
   def edit
     @church = Church.find(params[:id])
+
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Church Information'
   end
 
   # POST /churches
   def create
     @church = Church.new(params[:church])
+
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Church Information'
 
     respond_to do |format|
       if @church.save
@@ -63,6 +76,9 @@ class Admin::ChurchesController < ApplicationController
   def update
     @church = Church.find(params[:id])
 
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Church Information'
+
     respond_to do |format|
       if @church.update_attributes(params[:church])
         flash[:notice] = 'Church was successfully updated.'
@@ -74,12 +90,13 @@ class Admin::ChurchesController < ApplicationController
   end
 
   # DELETE /churches/1
-  def destroy
-    @church = Church.find(params[:id])
-    @church.destroy
+#  def destroy
+#    @church = Church.find(params[:id])
+#    @church.destroy
+#
+#    respond_to do |format|
+#      format.html { redirect_to(churches_url) }
+#    end
+#  end
 
-    respond_to do |format|
-      format.html { redirect_to(churches_url) }
-    end
-  end
 end

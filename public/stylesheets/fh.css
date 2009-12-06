@@ -114,3 +114,46 @@ dl.reservation-update div.in-line { width:110px; float:left }
 dl.reservation-update div.in-line.header { font-weight:bold; padding-right:6px; text-align:right }
 div.in-line input.short-text { width:110px }
 
+.admin-church-listings { padding:10px 10px 0 10px }
+.admin-church-listings .church-listing-row { clear:both; height:20px }
+.admin-church-listings .church-listing .header div { font-weight:bold; background-color:#203e70; color:white }
+.admin-church-listings .church-listing .footer div { background-color:#203e70; height:4px }
+.admin-church-listings .church-listing-row div { float:left; padding-right:1em; padding-left:.5em }
+.admin-church-listings .church-listing-row div.col1 { font-weight:bold; width:320px }
+.admin-church-listings .church-listing-row div.col2 { margin:0 0 0 0.25em; width:160px }
+.admin-church-listings .church-listing-row div.col3 { margin:0 0 0 0.25em; width:200px }
+
+.admin-church-editing dl { line-height: 2 }
+.admin-church-editing dl input { width: 250px; padding-left:3px; border:solid 1px #d0d0d0 }
+.admin-church-editing dl input.read_only { text-align:center; width:120px; padding-left:0px; background:#fff; border:0px }
+.admin-church-editing dl select { width: 255px; padding-left:3px; border:solid 1px #d0d0d0 }
+.admin-church-editing dl dt { font-weight:bold; width:125px; text-align:right; padding-right:1em; clear:both; float:left; }
+.admin-church-editing dl dd { float:left; margin:0 0 0.5em 0.25em }
+
+.admin-minister-listings .minister-listing div { padding-left:3px; padding-right:3px; line-height:1.8; border:solid 1px #e0e0e0 }
+.admin-minister-listings .minister-listing .col1 { clear:left; float:left; width:160px }
+.admin-minister-listings .minister-listing .col2 { float:left; width:180px; overflow:hidden }
+.admin-minister-listings .minister-listing .inactive { color: #cc0033 }
+.admin-minister-listings .minister-listing .inactive a { color: #cc0033 }
+.admin-minister-listings .minister-listing .header { font-weight:bold; background-color:#203e70; color:white }
+.admin-minister-listings .minister-listing .footer { background-color:#203e70; height:6px }
+
+.admin-minister-listings .minister-editing dl { line-height:1.8 }
+.admin-minister-listings .minister-editing dl dt { clear:left; float:left; width:130px; font-weight:bold }
+.admin-minister-listings .minister-editing dl dt { float:left }
+
+.admin-minister-editing dl { line-height:1.8 }
+.admin-minister-editing dl dt { clear:left; float:left; width:130px; font-weight:bold }
+.admin-minister-editing dl dt { float:left }
+
+.admin-minister-profile { padding-left:0.5em }
+.admin-minister-profile .minister-names { width:488px; padding:5px }
+.admin-minister-profile .minister-names .minister-status { margin-top:20px; margin-right:2px; float:right; font-weight:bold }
+.minister-names .active { color:green }
+.minister-names .inactive { color:red }
+.admin-minister-profile .minister-address { padding-left:0.5em; line-height:1.8 }
+.admin-minister-profile .minister-address dt { font-weight:bold; width:130px; float:left; clear:both }
+.admin-minister-profile .minister-address dd { float:left }
+.admin-minister-profile * h4 { margin:1px; padding:3px; background-color:steelblue; color:white }
+.admin-minister-profile .minister-roles { font-weight:bold; font-style:italic }
+

@@ -1,8 +1,12 @@
 class Admin::DeputationsController < ApplicationController
+  layout 'fhview'
   before_filter :login_required
 
   # GET /deputations
   def index
+
+    @admin_menu = true
+
     if params[:conditions]
       @deputations = Deputation.find(:all, 
         :conditions => params[:conditions],
@@ -25,6 +29,8 @@ class Admin::DeputationsController < ApplicationController
     @deputation = Deputation.find(params[:id])
 		@churches = Church.find(:all, :conditions => "status = 'active'", :order => 'church_name ASC')
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -35,6 +41,8 @@ class Admin::DeputationsController < ApplicationController
     @deputation = Deputation.new
 	@mid = params[:mid]
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -43,11 +51,16 @@ class Admin::DeputationsController < ApplicationController
   # GET /deputations/1/edit
   def edit
     @deputation = Deputation.find(params[:id])
+
+    @admin_menu = true
+
   end
 
   # POST /deputations
   def create
     @deputation = Deputation.new(params[:deputation])
+
+    @admin_menu = true
 
     respond_to do |format|
       if @deputation.save
@@ -93,6 +106,8 @@ class Admin::DeputationsController < ApplicationController
   def update
     @deputation = Deputation.find(params[:id])
 
+    @admin_menu = true
+
     respond_to do |format|
       if @deputation.update_attributes(params[:deputation])
         flash[:notice] = 'Deputation was successfully updated.'
@@ -104,13 +119,12 @@ class Admin::DeputationsController < ApplicationController
   end
 
   # DELETE /deputations/1
-  def destroy
-    @deputation = Deputation.find(params[:id])
-    @deputation.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(deputations_url) }
-    end
-  end
+#  def destroy
+#    @deputation = Deputation.find(params[:id])
+#    @deputation.destroy
+#
+#    respond_to do |format|
+#      format.html { redirect_to(deputations_url) }
+#    end
 
 end

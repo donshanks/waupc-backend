@@ -1,9 +1,11 @@
 class Admin::MinistersController < ApplicationController
-  layout "admin"
+  layout "fhview"
   before_filter :login_required
 
   # GET /ministers
   def index
+
+    @admin_menu = true
 
     per_page = params[:pp] || 40
 
@@ -28,6 +30,8 @@ class Admin::MinistersController < ApplicationController
   def show
     @minister = Minister.find(params[:id])
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -37,6 +41,8 @@ class Admin::MinistersController < ApplicationController
   def new
     @ministers = Minister.new
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -45,6 +51,7 @@ class Admin::MinistersController < ApplicationController
   # GET /ministers/1/edit
   def edit
     @ministers = Minister.find(params[:id])
+    @admin_menu = true
   end
 
   # POST /ministers

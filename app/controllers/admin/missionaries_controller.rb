@@ -1,9 +1,11 @@
 class Admin::MissionariesController < ApplicationController
-  layout "admin"
+  layout "fhview"
   before_filter :login_required 
 
   # GET /missionaries
   def index
+
+    @admin_menu = true
 
 		sortby = (params[:sort] == 'labor') ? 'labor' : 'lastname'
 	
@@ -33,6 +35,8 @@ class Admin::MissionariesController < ApplicationController
   def show
     @missionary = Missionary.find(params[:id])
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -42,6 +46,8 @@ class Admin::MissionariesController < ApplicationController
   def new
     @missionary = Missionary.new
 
+    @admin_menu = true
+
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -50,11 +56,16 @@ class Admin::MissionariesController < ApplicationController
   # GET /missionaries/1/edit
   def edit
     @missionary = Missionary.find(params[:id])
+
+    @admin_menu = true
+
   end
 
   # POST /missionaries
   def create
     @missionary = Missionary.new(params[:missionary])
+
+    @admin_menu = true
 
     respond_to do |format|
       if @missionary.save
@@ -70,6 +81,8 @@ class Admin::MissionariesController < ApplicationController
   def update
     @missionary = Missionary.find(params[:id])
 
+    @admin_menu = true
+
     respond_to do |format|
       if @missionary.update_attributes(params[:missionary])
         flash[:notice] = 'Missionary was successfully updated.'
@@ -81,14 +94,14 @@ class Admin::MissionariesController < ApplicationController
   end
 
   # DELETE /missionaries/1
-  def destroy
-    @missionary = Missionary.find(params[:id])
-    @missionary.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(missionaries_url) }
-    end
-  end
+#  def destroy
+#    @missionary = Missionary.find(params[:id])
+#    @missionary.destroy
+#
+#    respond_to do |format|
+#      format.html { redirect_to(missionaries_url) }
+#    end
+#  end
 
   def auto_complete_for_missionary_contains
   	search = params[:missionary][:contains]

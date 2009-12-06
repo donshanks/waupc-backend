@@ -1,4 +1,8 @@
-<div class="minister-profile">
+<% content_for :page_title do %>
+  <div>Washington District UPC Ministers</div>
+<% end %>
+
+<div class="admin-minister-profile">
 
   <div class="minister-names">
     <div class="minister-status"><span class="<%=h @minister.status %>"><%=h @minister.status.capitalize() %></span></div>

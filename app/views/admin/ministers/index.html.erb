@@ -1,39 +1,30 @@
-<div class="page-title">
-  <h2>District Ministers</h2>
-</div>
+<% content_for :page_title do %>
+  <div>Washington District UPC Ministers</div>
+<% end %>
 
-<table border="0" cellpadding="0" cellspacing="0">
+<table border="0" cellpadding="0" cellspacing="0" class="admin-minister-listings">
   <tr>
-    <td style="vertical-align:top">
+    <% [ @ministers[0,@ministers.length/2], 
+         @ministers[@ministers.length/2,@ministers.length] 
+       ].each do |minister_list| %>
+    <td style="vertical-align:top;padding-right:10px">
       <div class="minister-listing">
 
         <div class="col1 header">Name</div>
         <div class="col2 header">Email</div>
-        <div class="col3 header">Status</div>
 
-        <% 0.upto( (@ministers.length/2)-1 ) do |i| minister = @ministers[i]  %>
-          <div class="col1"><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister -%></div>
-          <div class="col2" title="<%=h minister.email -%>"><%=h minister.email -%></div>
-          <div class="col3"><%=h minister.status -%></div>
+        <% minister_list.each do |minister| -%>
+          <% cls_inactive = (minister.status == 'active') ? '' : ' inactive' -%>
+          <div class="col1<%= cls_inactive -%>"><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister -%></div>
+          <div class="col2<%= cls_inactive -%>"><%= minister.email -%></div>
         <% end %>
+
+        <div class="col1 footer"></div>
+        <div class="col2 footer"></div>
 
       </div>
     </td>
-    <td style="padding-left:.5em;vertical-align:top">
-      <div class="minister-listing">
-
-        <div class="col1 header">Name</div>
-        <div class="col2 header">Email</div>
-        <div class="col3 header">Status</div>
-
-        <% (@ministers.length/2).upto(@ministers.length-1)   do |i| minister = @ministers[i]  %>
-          <div class="col1"><%= link_to "#{minister.title} #{minister.firstname} #{minister.lastname}", minister -%></div>
-          <div class="col2" title="<%=h minister.email -%>"><%=h minister.email -%></div>
-          <div class="col3"><%=h minister.status -%></div>
-        <% end %>
-
-      </div>
-    </td>
+    <% end %>
   </tr>
 </table>
 

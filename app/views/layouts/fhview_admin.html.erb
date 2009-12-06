@@ -48,23 +48,14 @@
               </td>
             </tr>
             <tr><td class="page-header-block-top"></td></tr>
-            <tr><td class="page-header-block" style="width:960px"><%= yield :page_title %></td></tr>
+            <tr><td class="page-header-block" style="width:960px"><div><%= yield :page_title %></div></td></tr>
             <tr><td class="page-header-block-btm"></td></tr>
             <tr>
               <td style="width:960px">
                 <table class="content-block" cellspacing="0" cellpadding="0">
                   <tr>
-                    <% if nil ^ @admin_menu then %>
-                    <td id="admin-menu-block"><%= render :partial => "layouts/fhview_admin_menu" %></td>
-                    <% elsif nil ^ @no_menu then %>
-                    <!-- no column -->
-                    <% else %>
-                    <td id="menu-block"><%= render :partial => "layouts/fhview_inner_menu" %></td>
-                    <% end %>
                     <td>
-                      <div class="layout-block">
-                        <%= yield :layout %>
-                      </div>
+                      <%= yield :layout %>
                     </td>
                   </tr>
                 </table>
@@ -74,7 +65,5 @@
         </td>
       </tr>
     </table>
-    <%= render :partial => "layouts/fhview_footer" %>
-    <%= render :partial => "layouts/fhview_linkfarm" %>
   </body>
 </html>

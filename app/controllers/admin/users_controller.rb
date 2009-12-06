@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
 	before_filter :login_required, :only => ['welcome', 'change_password', 'hidden']
+  layout 'fhview'
 
 	def signup
 		@user = User.new(params[:user]) 
@@ -15,6 +16,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def login
+    @no_menu = true
 		if request.post?
 			if session[:user] = User.authenticate( 
 					params[:user][:login], 
@@ -36,6 +38,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def forgot_password
+    @no_menu = true
 		if request.post?
 			u=User.find_by_login(params[:user][:login])
 			if u and u.send_new_password
@@ -49,6 +52,7 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def change_password
+    @no_menu = true
 		@user = session[:user]
 		if request.post?
 			@user.update_attributes(:password=>params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
@@ -59,6 +63,8 @@ class Admin::UsersController < ApplicationController
 	end
 
 	def welcome
+    @admin_menu = true
+    @pageTitle = 'Washington District UPC Administration'
 	end
 
 	def hidden
