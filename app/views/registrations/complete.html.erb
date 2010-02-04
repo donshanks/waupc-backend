@@ -1,0 +1,20 @@
+<h1>Event Registration Complete</h1>
+
+<div class="main-content events">
+
+	<div>
+		<div class="event-title"><%= @event.name %></div>
+		<div class="timeline"><%= @event.dateline %></div>
+		<div class="location"><%= @event.location %></div>
+	</div>
+	<div class="event-theme"><%= @event.tagline %></div>
+
+  <% if Date.today > @event.reg_expires.to_date then render :partial => "expired_#{@event.key}"; end -%>
+
+  <div class="para">
+    You have completed the registration process.
+    Click <%= link_to "here", "/events/#{@event.key}" %> to return to the Events Information Page.
+  </div>
+
+</div>
+

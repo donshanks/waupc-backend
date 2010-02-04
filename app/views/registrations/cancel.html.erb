@@ -1,0 +1,26 @@
+<h1>Event Registration Cancelled</h1>
+
+<div class="main-content events">
+
+  <% if @event then %>
+	<div>
+		<div class="event-title"><%= @event.name %></div>
+		<div class="timeline"><%= @event.dateline %></div>
+		<div class="location"><%= @event.location %></div>
+	</div>
+	<div class="event-theme"><%= @event.tagline %></div>
+  <% end %>
+
+  <% if Date.today > @event.reg_expires.to_date then render :partial => "expired_#{@event.key}"; end -%>
+
+  <div class="para">
+    You have cancelled the registration process.
+    <% if @event then %>
+    Click <%= link_to "here", "/events/#{@event.key}" %> to return to the Events Information Page.
+    <% else %>
+    Click <%= link_to "here", "/" %> to return to the Home Page.
+    <% end %>
+  </div>
+
+</div>
+

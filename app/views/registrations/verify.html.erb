@@ -1,0 +1,75 @@
+<% content_for :page_javascript do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.disabled').attr('readonly',true)
+    $('#registration_reset').bind('click', function(){ history.go(-1); });
+  });
+</script>
+<% end %>
+
+<h1>Verify Event Registration</h1>
+
+<div class="main-content events">
+
+	<div>
+		<div class="event-title"><%= @event.name %></div>
+		<div class="timeline"><%= @event.dateline %></div>
+		<div class="location"><%= @event.location %></div>
+	</div>
+	<div class="event-theme"><%= @event.tagline %></div>
+
+	<% form_tag @paypal_url, :name => 'sendToPayPal' do -%>	
+
+	<fieldset class="event-register confirming">
+		<ul>
+			<li><%= label_tag 'first_name' %><%= text_field_tag 'first_name', @first_name, :class => 'readonly' -%></li>
+			<li><%= label_tag 'last_name' %><%= text_field_tag 'last_name', @last_name, :class => 'readonly' -%></li>
+		</ul>
+		<ul>
+			<li><%= label_tag 'address1', 'Address' -%>
+          <%= text_field_tag 'address1', @registration.address, :class => "kingsize readonly" -%></li>
+		</ul>
+		<ul>
+			<li><%= label_tag 'city' -%><%= text_field_tag 'city', @registration.city, :class => 'readonly' -%></li>
+			<li><%= label_tag 'state' -%><%= text_field_tag 'state', @registration.state, :class => 'halfsize readonly' -%></li>
+			<li><%= label_tag 'zip', 'Zip Code', :class => 'halfsize' -%>
+          <%= text_field_tag 'zip', @registration.postal, :class => 'quartersize readonly' -%></li>
+		</ul>
+		<ul>
+			<li><%= label_tag 'custom', "Phone" -%>
+          <%= hidden_field_tag 'H_PhoneNumber', @registration.phone -%>
+          <%= text_field_tag 'custom', @parsed_phone, :class => 'readonly' -%></li>
+			<li><%= label_tag 'email', "E-Mail" -%><%= text_field_tag 'email', @registration.email, :class => 'readonly' -%></li>
+		</ul>
+		<ul>
+			<li><%= label_tag 'church', "Church Name" -%><%= text_field_tag 'church', @registration.church, :class => 'readonly' -%></li>
+			<li><%= label_tag 'pastor', "Pastor" -%><%= text_field_tag 'pastor', @registration.pastor, :class => 'readonly' -%></li>
+		</ul>
+		<ul><li>&nbsp;</li></ul>
+		<ul>
+			<li><label>&nbsp;</label><%= submit_tag 'Complete', :class => 'button', :title => "Complete Registration and Submit Payment" -%></li>
+			<li><%= submit_tag 'Edit', :type => 'reset', :id => "registration_reset", :class => "button", :title => "Cancel and Return to Entry Page" -%></li>
+		</ul>
+		<ul>
+			<li style="width:85%"><small>Registration is $75.00. A fee of $3.00 is added to help defray the cost of online transaction fees. If any errors or questions
+        arise concerning this registration, feel free to contact the Web Development Team at <%= mail_to "webdev@waupc.org" -%></small></li>
+		</ul>
+    <% @hidden_values.each do |name,value| %>
+      <%= hidden_field_tag name, value -%>
+    <% end %>
+	</fieldset>
+    
+  <%= token_tag %>
+
+	<% end %>
+
+  <% 
+    image_params = []
+    @image_values.each do |nam,val|
+      image_params << "#{nam}=#{h(val)}" 
+    end 
+  -%>
+
+	<img src="http://www.waupci.com/images/event.gif?<%=image_params.join('&')-%>" width="1" height="1" border="0" />
+</div>
+
