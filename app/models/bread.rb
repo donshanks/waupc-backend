@@ -1,3 +1,4 @@
 class Bread < ActiveRecord::Base
-  set_table_name 'bible_bread'
+  establish_connection "ctupc_#{RAILS_ENV}"
+  set_table_name 'readings'
 end

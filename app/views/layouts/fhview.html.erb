@@ -76,5 +76,15 @@
     </table>
     <%= render :partial => "layouts/fhview_footer" %>
     <%= render :partial => "layouts/fhview_linkfarm" %>
+    <%= javascript_include_tag "jquery.hoverIntent.minified.js", "jquery.superfish.js" %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("ul.sf-menu").superfish({
+          animation: {height:'show'},
+          delay: 100
+        });
+      });
+    </script>
+    <%= yield :page_javascript %>
   </body>
 </html>

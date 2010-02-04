@@ -12,6 +12,7 @@
       <div class="labor">Missionary to <%= deputation.missionary.labor -%></div>
       <div class="dates"><%= deputation.date_range -%></div>
     </div>
+    <div style="clear:both;font-size:4px;height:1px">&nbsp;</div>
     <div class="reservation-schedule" id="reservation_table_<%=deputation.id%>">
       <table cellpadding="0" cellspacing="0" class="schedule">
         <tr>
@@ -49,8 +50,13 @@
 </div>
 <script type="text/javascript">
   function toggle_schedule(id) {
-    $('.reservation-schedule').hide();
-    $('#reservation_table_'+id).slideDown();
+    $.each( $('.reservation-schedule'), function(){
+      if (this.id == 'reservation_table_'+id) {
+        $(this).toggle();
+      } else {
+        $(this).hide();
+      }
+    });
   }
 </script>
 

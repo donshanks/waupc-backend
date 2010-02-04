@@ -4,16 +4,15 @@
 			<th class="col1">Date</th>
 			<th class="col2">Time</th>
 			<th class="col3">Status</th>
-			<th class="col4">Church</th>
-			<th class="col5"></th>
-			<th class="col6"></th>
+			<th>&nbsp;</th>
 		</tr>
+    <tr><td colspan="4" class="second">&nbsp;</td></tr>
 	</table>
 	<% for booking in bookings %>
 		<% form_remote_for booking, :complete => 'booking_update_complete(request)'  do |f| %>  
       <table class="deputation-booking-table" id="tblBooking_<%=booking.id%>">
         <tr>
-          <td class="col1"><%= booking.date_of.strftime('%a, %b %e, %y') %></td>
+          <td class="col1"><%= booking.date_of.strftime('%a, %b %e, %Y') %></td>
           <td class="col2"><%= f.time_select :time_of, {
               :simple_time_select => true, :lower_limit => 60*9, :upper_limit => 60*22, :minute_interval => 30, :time_separator => ""
             } -%></td>
@@ -22,9 +21,7 @@
             <%= options_for_select %w(open booked reserved cancelled), booking.status %>
             </select>
           </td>
-          <td class="col4"><%= f.select :church_id, @churches.collect {|p| [p.selector_name,p.id]}, :include_blank => 'Select Church' %></td>
-          <td class="col5"><%= f.submit "Update" %></td>
-          <td class="col6">
+          <td>
             <input id="btnConfirm_<%=booking.id%>" class="confirm_btn" <%= (booking.status != 'booked') ? 'disabled="disabled"' : '' %> 
               type="button" value="Send Confirmation" onclick="<%= 
                 remote_function :url => {
@@ -35,6 +32,11 @@
               -%>" />
           </td>
         </tr>
+        <tr>
+          <td colspan="3"><%= f.select :church_id, @churches.collect {|p| [p.selector_name,p.id]}, :include_blank => 'Select Church' %></td>
+          <td><%= f.submit "Update" %></td>
+        </tr>
+        <tr><td colspan="4" class="second">&nbsp;</td></tr>
       </table>
 		<% end %>
 	<% end %>	

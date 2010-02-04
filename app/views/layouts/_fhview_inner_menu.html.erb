@@ -1,3 +1,39 @@
+<!--
+
 <script type="text/javascript" src="/images/fhview/submenu_data.js"> </script>
 <a href="http://www.milonic.com"><font style="visibility:hidden"></font></a>
 
+-->
+
+<%= semantic_menu :class => 'sf-menu' do |main|
+  main.add "Home",           "http://www.waupc.com/index.php"
+  main.add "About Us",       "http://www.waupc.com/who.php"
+  main.add "Ministries",     "javascript:void(0)" do |ministries|
+    ministries.add "Apostolic Man",     "http://www.waupc.com/apostolic_man.php"
+    ministries.add "Foreign Missions",  "http://www.waupc.com/foreign_missions.php"
+    ministries.add "Home Missions",     "http://www.waupc.com/home_missions.php"
+    ministries.add "Ladies Ministries", "http://www.waupc.com/ladies_ministries.php"
+    ministries.add "Media Missions",    "http://www.waupc.com/media_missions.php"
+    ministries.add "Sunday School",     "http://www.waupc.com/sunday_school.php"
+    ministries.add "Youth Ministries",  "http://www.waupc.com/youth_ministries.php"
+  end
+  main.add "Calendar",       "http://www.waupc.com/calendar.php" do |cal|
+    cal.add "Calendar", "http://www.waupc.com/calendar.php"
+    cal.add "News",     "http://www.waupc.com/news.php"
+    cal.add "Events",   "http://www.waupc.com/events.php"
+  end
+  main.add "Sections", "javascript:void(0)", :class => 'sections' do |sections|
+    sections.add "Section One",   "http://www.waupc.com/section_one.php"
+    sections.add "Section Two",   "http://www.waupc.com/section_two.php"
+    sections.add "Section Three", "http://www.waupc.com/section_three.php"
+    sections.add "Section Four",  "http://www.waupc.com/section_four.php"
+    sections.add "Section Five",  "http://www.waupc.com/section_five.php"
+  end
+  main.add "Churches",       "http://www.waupc.com/churches.php" do |churches|
+    churches.add "Churches in Washington",      "http://www.waupc.com/churches.php"
+    churches.add "Churches Outside Washington", "http://wec.upci.org/churches/locator"
+  end
+  main.add "Ministers Area", "http://www.waupc.com/ministers_area.php"
+  main.add "Endowment",      "http://www.waupc.com/contact.php"
+  main.add "Contact Us",     "http://www.waupc.com/contact.php"
+end %>
