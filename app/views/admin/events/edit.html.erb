@@ -1,0 +1,41 @@
+<% content_for :page_javascript do %>
+<%= javascript_include_tag "tiny_mce/tiny_mce" %>
+<script type="text/javascript">
+    tinyMCE.init({
+      mode: "textareas",
+      theme: "simple"
+    });
+</script>
+<% end %>
+
+
+<h1>Editing event</h1>
+
+<% form_for @event, :action => 'create', :method => 'post' do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :id %>
+
+  <table>
+    <tr><td><%= f.label :key %></td>         <td><%= f.text_field :key, :style => "width:340px", :maxlength => 50 %></td></tr>
+    <tr><td><%= f.label :name %></td>        <td><%= f.text_field :name, :style => "width:340px", :maxlength => 100 %></td></tr>
+    <tr><td><%= f.label :location %></td>    <td><%= f.text_field :location, :style => "width:340px", :maxlength => 100 %></td></tr>
+    <tr><td><%= f.label :tagline %></td>     <td><%= f.text_field :tagline, :style => "width:340px", :maxlength => 100 %></td></tr>
+    <tr><td><%= f.label :dateline %></td>    <td><%= f.text_field :dateline, :style => "width:340px", :maxlength => 100 %></td></tr>
+    <tr><td><%= f.label :reg_expires %></td> <td><%= f.date_select :reg_expires %></td></tr>
+    <tr><td><%= f.label :desc %></td>        <td><%= f.text_area  :desc, :rows => 10, :style => "width:540px" %></td></tr>
+    <tr><td><%= f.label :hotel_link %></td>  <td><%= f.text_field :hotel_link, :style => "width:340px", :maxlength => 100 %></td>
+      <td><% if @event.hotel_link then %><%= link_to "test", @event.hotel_link %><% end %></td></tr>
+    <tr><td><%= f.label :map_link %></td>    <td><%= f.text_field :map_link, :style => "width:340px", :maxlength => 100 %></td>
+      <td><% if @event.map_link then %><%= link_to "test", @event.map_link %><% end %></td></tr>
+    <tr><td><%= f.label :poster_link %></td> <td><%= f.text_field :poster_link, :style => "width:340px", :maxlength => 100 %></td>
+      <td><% if @event.poster_link then %><%= link_to "test", @event.poster_link %><% end %></td></tr>
+    <tr><td>&nbsp;</td>                      <td><%= f.submit  "Update", :style => "width:340px" %></td></tr>
+  </table>
+
+<% end %>
+
+<br />
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>
