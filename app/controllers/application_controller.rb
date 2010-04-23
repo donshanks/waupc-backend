@@ -28,4 +28,14 @@ class ApplicationController < ActionController::Base
 	end
   end
 
+  def google_api_key
+    domain = request.domain()
+    apikey = case domain
+      when 'waupci.com'then 'ABQIAAAA4QvaOZF0TyrEiBjftCedLhRo2sb7Ikqu5STjBO-1TQs3bohOxBSXU50lJn7cTpZTpihmKDZBynF4EQ'
+      when 'waupc.net' then 'ABQIAAAAaodYeVLxuLcv9GzH5da9KBR0Sltk3GtkScdUDsCNtJwC2XNkwxQ7yWg1BmYNgapKdyDHAhipU5NNIQ'
+      else                  'ABQIAAAA4QvaOZF0TyrEiBjftCedLhSuQ5C3NrpuFfvdIEwLzD_XE8o3LRSVdrSnnSrdVxlO0vwwpXf_lEcCJg'
+    end
+    apikey
+  end
+
 end

@@ -108,7 +108,7 @@ class RegistrationsController < ApplicationController
 
     if params['payment_status'] == 'Completed' then
       @registration.paid = true
-      @registration.paid_date  = DateTime.strptime('23:22:45 Jan 03, 2010 PST','%T %b %d, %Y %Z').strftime('%F %T')
+      @registration.paid_date  = DateTime.strptime(params['payment_date'],'%T %b %d, %Y %Z').strftime('%F %T')
       @registration.paid_amt   = params['payment_gross']
       @registration.paid_fee   = params['payment_fee']
       @registration.txn_id     = params['txn_id']

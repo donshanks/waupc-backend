@@ -53,6 +53,7 @@ class Admin::ChurchesController < ApplicationController
 
     @admin_menu = true
     @pageTitle = 'Washington District UPC Church Information'
+    @gapi = google_api_key()
   end
 
   # POST /churches

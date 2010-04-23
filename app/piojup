@@ -1,0 +1,44 @@
+jsonp1266898133862 && jsonp1266898133862( {
+  "name": "2400 East Valley Rd, Renton  98057",
+  "Status": {
+    "code": 200,
+    "request": "geocode"
+  },
+  "Placemark": [ {
+    "id": "p1",
+    "address": "2400 E Valley Rd, Renton, WA 98057, USA",
+    "AddressDetails": {
+      "Accuracy" : 8,
+      "Country" : {
+        "AdministrativeArea" : {
+          "AdministrativeAreaName" : "WA",
+          "SubAdministrativeArea" : {
+            "Locality" : {
+              "LocalityName" : "Renton",
+              "PostalCode" : {
+                "PostalCodeNumber" : "98057"
+              },
+              "Thoroughfare" : {
+                "ThoroughfareName" : "2400 E Valley Rd"
+              }
+            },
+            "SubAdministrativeAreaName" : "King"
+          }
+        },
+        "CountryName" : "USA",
+        "CountryNameCode" : "US"
+      }
+    },
+    "ExtendedData": {
+      "LatLonBox": {
+        "north": 47.4621589,
+        "south": 47.4558636,
+        "east": -122.2149280,
+        "west": -122.2212232
+      }
+    },
+    "Point": {
+      "coordinates": [ -122.2180659, 47.4590112, 0 ]
+    }
+  } ]
+})

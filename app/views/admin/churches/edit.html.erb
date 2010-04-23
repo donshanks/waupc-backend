@@ -1,6 +1,9 @@
 <% content_for :page_title do %>
   <div>Washington District UPC Churches</div>
 <% end %>
+<% content_for :page_javascript do %>
+  <script type="text/javascript">geocoder.setKey('<%= @gapi %>');</script>
+<% end %>
 
 <h1 style="padding-left:1em">Editing: <%= @church.church_name -%></h1>
 
@@ -43,7 +46,7 @@
 
 
       <dt>&nbsp;</dt>
-      <dd><%= button_to_function "GeoCode", "lookupLatLong('#{@church.full_physical_address}')" %></dd>
+      <dd><%= button_to_function "GeoCode", "geocoder.lookupLatLong('#{@church.full_physical_address}')" %></dd>
 
     </dl>
   </div>

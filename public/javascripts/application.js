@@ -1,6 +1,5 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-var gapi = 'ABQIAAAA4QvaOZF0TyrEiBjftCedLhSuQ5C3NrpuFfvdIEwLzD_XE8o3LRSVdrSnnSrdVxlO0vwwpXf_lEcCJg';
 
 function booking_update_complete(req) {
   var obj =$.evalJSON( req.responseText );
@@ -20,6 +19,7 @@ function GoogleGeocode(apiKey) {
         if(data.Status.code==200) {
           var result = {};
           var ad = data.Placemark[0].AddressDetails.Country.AdministrativeArea;
+          if ( undefined == ad.Locality ) ad = ad.SubAdministrativeArea;
           result.streetAddress = ad.Locality.Thoroughfare && ad.Locality.Thoroughfare.ThoroughfareName ? ad.Locality.Thoroughfare.ThoroughfareName : '';
           result.city = ad.Locality && ad.Locality.LocalityName ? ad.Locality.LocalityName : ''; 
           result.state = ad && ad.AdministrativeAreaName ? ad.AdministrativeAreaName : '';
@@ -35,17 +35,27 @@ function GoogleGeocode(apiKey) {
   };
 }
 
-function lookupLatLong(addr) {
-  var g = new GoogleGeocode(gapi);
-  g.geocode(addr, function(data) {
-      if ( data !== null ) {
-        $('#church_lat').val(data.latitude); 
-        $('#church_lon').val(data.longitude); 
-        alert('Lat Long values loaded!');
-      } else {
-        alert('Error! Unable to geocode address');
-      }
+var geocoder = function(){
+  var gapi = 'null';
+  return {
+    lookupLatLong: function(addr){
+      var g = new GoogleGeocode(gapi);
+      g.geocode(addr, function(data) {
+        if ( data !== null ) {
+          $('#church_lat').val(data.latitude); 
+          $('#church_lon').val(data.longitude); 
+          alert('Lat Long values loaded!');
+        } else {
+          alert('Error! Unable to geocode address');
+        }
+      })
+    },
+    setKey: function(key) {
+      gapi = key;
+    },
+    getKey: function() {
+      return gapi;
     }
-  );
-}
+  };
+}();
 

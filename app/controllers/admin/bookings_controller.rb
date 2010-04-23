@@ -66,7 +66,8 @@ class Admin::BookingsController < ApplicationController
       @booking.deputation.missionary.name,
       church.pastor,
       church.church_name,
-      date_time
+      date_time,
+      church.minister.email
     )
 
     render :json => "Success".to_json

@@ -2,11 +2,11 @@ class PostOffice < ActionMailer::Base
 
 	def confirmation_notice(missionary,pastor,church,date_time,to='')
 
-    to = 'donshanks@gmail.com' # if to.nil_or_empty?
+    to = 'donshanks@gmail.com' if to.nil_or_empty?
 
 		@recipients   = Array(to).join(',')
 		@from         = "webdev@waupc.net"
-#		@cc           = "foreignmissions@waupc.org"
+		@cc           = "foreignmissions@waupc.org"
 		@bcc          = "webdev@waupc.net"
 		@subject      = "Missionary Booking Confirmation"
 		@sent_on      = Time.now

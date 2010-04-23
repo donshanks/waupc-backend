@@ -27,7 +27,9 @@
                 remote_function :url => {
                   :controller => 'bookings', 
                   :id => booking.id, 
-                  :action => 'notify'
+                  :action => 'notify',
+                  :success => %(alert('Confirmation Sent!')),
+                  :failure => %(alert('No confirmation has been sent! Please contact the WebDev team if this error persists!'))
                 } 
               -%>" />
           </td>

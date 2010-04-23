@@ -317,3 +317,10 @@ input.error, select.error { border: solid 1px #d00; color: #000 }
 .event-display h3 { font-style:italic; margin-top:0px; margin-bottom:0px }
 .event-display h4 { color:#c00; margin-top:0px }
 
+.admin-registration-list tr {}
+.admin-registration-list th { font-weight:bold; background-color:#203e70; color:white; padding:3px 14px 3px 14px }
+.admin-registration-list th.dates { text-align:center }
+.admin-registration-list td { padding:4px }
+.admin-registration-list td.dates { padding-left:14px; padding-right:14px; text-align:center }
+.admin-registration-list td.names { padding-left:3px }
+.admin-registration-list td.links { text-align:center }

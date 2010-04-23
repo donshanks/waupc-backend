@@ -45,7 +45,10 @@ ActionController::Routing::Routes.draw do |map|
     m.cancel_registration   '/registrations/cancel/:invoice', :action => "cancel"
   end
 
-  map.display_event '/events/:key', :controller => 'events'
+  map.stream_event   '/events/stream.:format', :controller => 'events', :action => 'stream'
+  map.stream_archive '/events/stream-archive.:format', :controller => 'events', :action => 'stream_archive'
+  map.webalbum_event '/events/:key/picasa.:format', :controller => 'events', :action => 'picasa'
+  map.display_event  '/events/:key', :controller => 'events'
 
   map.resources :deputations,   :controller => 'deputations'
   map.resources :bookings,      :controller => 'bookings'

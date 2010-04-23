@@ -1,2 +1,24 @@
-<h1>Admin::Registrations#index</h1>
-<p>Find me in app/views/admin/registrations/index.html.erb</p>
+<% content_for :page_title do %>
+  <div>Washington District Event Registrations</div>
+<% end %>
+
+<table class="admin-registration-list">
+  <tr>
+    <th>Name</th>
+    <th class="dates">Registered On</th>
+    <th class="dates">Paid On</th>
+    <th></th>
+  </tr>
+
+<% @registrations.each do |registration| %>
+  <% paid_date = !registration.paid_date.blank? ? registration.paid_date.strftime("%b %e, %Y") : '' %>
+  <% content_tag_for(:tr,registration) do %>
+    <td class="names"><%= registration.name.titleize %></td>
+    <td class="dates"><%= registration.created_at.strftime("%b %e, %Y") %></td>
+    <td class="dates"><%= paid_date %></td>
+    <td class="links"><%= link_to 'Show', registration %></td>
+  <% end %>
+<% end %>
+</table>
+
+<br />

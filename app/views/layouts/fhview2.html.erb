@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <script src="/javascripts/fhview/milonic_src.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      if (ns4) { _d.write("<scr" + "ipt type='text/javascript' src=/javascripts/fhview/mmenuns4.js><\/scr" + "ipt>"); }
+      else     { _d.write("<scr" + "ipt type='text/javascript' src=/javascripts/fhview/mmenudom.js><\/scr" + "ipt>"); }
+    </script>
+    <title>Washington District - United Pentecostal Church</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="/images/fhview/favicon.ico">
+    <%= stylesheet_link_tag 'fh' %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script> 
+    <style type="text/css">
+      body {
+        background:url(/images/fhview/backgroundInside.gif) #e2e2e2 repeat-y top center;
+        margin:0; text-align:center; width:auto
+      }
+      table { vertical-align:top; border:0 } 
+      td { vertical-align:top }
+      .body-block { margin:auto; background-color:transparent }
+      .outer-block { margin:auto; width:960px }
+      .header-block { background:url(/images/fhview/insideUserBanner.gif) repeat-y; text-align:center; height:140px }
+      .page-header-block { background:url(/images/fhview/insideContentHeader_repeat.jpg) repeat-y; text-align:left }
+      .page-header-block div { 
+          margin-left:15px; padding-bottom:4px; overflow:hidden; color:#ffffff; font-size:24px; font-family:arial;
+       }
+       .page-header-block-top { height:11px; background:url(/images/fhview/insideContentHeader_top.jpg) bottom left }
+       .page-header-block-btm { height:13px; background:url(/images/fhview/insideContentHeader_bottom.jpg) top left }
+      .content-block { background:url(/images/fhview/contentRepeat.gif) repeat-y; text-align:left; min-height:548px; width:960px }
+      #menu-block { width:140px; padding-top:10px; padding-left:10px }
+      .layout-block { min-height:500px; width:800px; margin-bottom:30px; margin-top:10px }
+    </style>
+    <%= yield :page_style %>
+  </head>
+  <body>
+    <table class="body-block" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>
+          <table class="outer-block" cellspacing="0" cellpadding="0">
+            <tr><td style="width:960px"><div style="height:72px"><img src="/images/fhview/insideHeader.gif" 
+              alt="Washington District UPCI" title="Washington District UPCI"></div></td></tr>
+            <tr>
+              <td class="header-block" style="width:960px">
+                <div style="overflow:hidden;width:960px;">
+                  <img src="/images/fhview/fm_banner.jpg" />
+                </div>
+              </td>
+            </tr>
+            <tr><td class="page-header-block-top"></td></tr>
+            <tr><td class="page-header-block" style="width:960px"><%= yield :page_title %></td></tr>
+            <tr><td class="page-header-block-btm"></td></tr>
+            <tr>
+              <td style="width:960px">
+                <table class="content-block" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <% if nil ^ @admin_menu then %>
+                    <td id="admin-menu-block"><%= render :partial => "layouts/fhview_admin_menu" %></td>
+                    <% elsif nil ^ @no_menu then %>
+                    <!-- no column -->
+                    <% else %>
+                    <td id="menu-block"><%= render :partial => "layouts/fhview_inner_menu" %></td>
+                    <% end %>
+                    <td>
+                      <div class="layout-block">
+                        <%= yield :layout %>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <%= render :partial => "layouts/fhview_footer" %>
+    <%= render :partial => "layouts/fhview_linkfarm" %>
+    <%= javascript_include_tag "jquery.hoverIntent.minified.js", "jquery.superfish.js" %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("ul.sf-menu").superfish({
+          animation: {height:'show'},
+          delay: 100
+        });
+      });
+    </script>
+    <%= yield :page_javascript %>
+  </body>
+</html>

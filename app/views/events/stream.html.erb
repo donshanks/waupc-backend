@@ -1,0 +1,59 @@
+<% content_for :page_javascript do %>
+    <script type="text/javascript" src="http://malsup.github.com/chili-1.7.pack.js"></script> 
+    <script type="text/javascript" src="/javascripts/jquery.metadata.v2.js"></script> 
+    <script type="text/javascript" src="http://github.com/malsup/media/raw/master/jquery.media.js?v0.92"></script>
+<% end %>
+<%
+#<script type="text/javascript">
+#  $(function(){
+#    $('a.media').media();  
+#  });
+#</script>
+#<a class="media {width:640, height:480}" href="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">Spring Conference</a> 
+%>
+<% if params['small'] %>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=320 HEIGHT=240>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="ImageWindow">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=320 HEIGHT=240 NOJAVA=true CONTROLS=ImageWindow CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=320 HEIGHT=36>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="ControlPanel">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=320 HEIGHT=36 NOJAVA=true CONTROLS=ControlPanel CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=320 HEIGHT=30>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="StatusBar">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=320 HEIGHT=30 NOJAVA=true CONTROLS=StatusBar CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<% else %>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=640 HEIGHT=480>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="ImageWindow">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=640 HEIGHT=480 NOJAVA=true CONTROLS=ImageWindow CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=640 HEIGHT=36>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="ControlPanel">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=640 HEIGHT=36 NOJAVA=true CONTROLS=ControlPanel CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<OBJECT ID=RVOCX CLASSID="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" WIDTH=640 HEIGHT=30>
+<PARAM NAME="SRC" VALUE="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm">
+<PARAM NAME="CONTROLS" VALUE="StatusBar">
+<PARAM NAME="CONSOLE" VALUE="one">
+<PARAM NAME="AUTOSTART" VALUE="true">
+<EMBED SRC="http://str3.nlenet.net:8080/ramgen/broadcast/conftest.rm" WIDTH=640 HEIGHT=30 NOJAVA=true CONTROLS=StatusBar CONSOLE=one AUTOSTART=true>
+</OBJECT>
+<% end %>
+

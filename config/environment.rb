@@ -4,7 +4,7 @@
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.log_level = :debug
+  config.log_level = :error
   config.log_path = "/opt/web/log/waupc-backend/#{RAILS_ENV}.log"
   config.action_controller.session = {
     :session_key => '_fmissions_session',

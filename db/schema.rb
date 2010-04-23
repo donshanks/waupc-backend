@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100123085200) do
+ActiveRecord::Schema.define(:version => 20100105040751) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "deputation_id",               :default => 0,      :null => false
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20100123085200) do
     t.string   "hotel_link",    :limit => 200
     t.string   "map_link",      :limit => 200
     t.string   "brochure_link", :limit => 200
+    t.string   "picasa_tag",    :limit => 100
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -196,6 +197,20 @@ ActiveRecord::Schema.define(:version => 20100123085200) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "streams", :force => true do |t|
+    t.integer  "event_id",                  :null => false
+    t.string   "name",       :limit => 100, :null => false
+    t.string   "src",        :limit => 100
+    t.integer  "width"
+    t.integer  "height"
+    t.date     "date_of",                   :null => false
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "streams", ["event_id"], :name => "index_streams_on_event_id"
 
   create_table "users", :force => true do |t|
     t.string   "login",            :null => false

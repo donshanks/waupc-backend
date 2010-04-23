@@ -1,2 +1,34 @@
-<h1>Admin::Registrations#show</h1>
-<p>Find me in app/views/admin/registrations/show.html.erb</p>
+<% content_for :page_title do %>
+  <div>Washington District Event Registrations</div>
+<% end %>
+
+<div class="registration-detail-page">
+
+  <h2>Registration Detail</h2>
+
+  <table class="admin-registation-item">
+    <tr>
+      <th>Name: </th>
+      <td><%= @registration.name.titleize %></td>
+    </tr>
+    <tr>
+      <th>Event: </th>
+      <td><%= @registration.event %></td>
+    </tr>
+
+    <tr><td colspan="2">&nbsp;</td></tr>
+
+    <% @record_cols.each do |col| %>
+    <tr>
+      <th><%= col.titleize -%>: </th>
+      <td><%= format_for_col(col, @registration.attributes()[col]) -%></td> 
+    </tr>
+    <% end %>
+
+    <tr><td colspan="2">&nbsp;</td></tr>
+
+  </table>
+
+  <%= link_to "Back to Registration List", :back %>
+
+</div>
