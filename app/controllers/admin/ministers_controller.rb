@@ -1,3 +1,5 @@
+require 'pp'
+
 class Admin::MinistersController < ApplicationController
   layout "fhview"
   before_filter :login_required
@@ -56,11 +58,11 @@ class Admin::MinistersController < ApplicationController
 
   # POST /ministers
   def create
-    @ministers = Minister.new(params[:ministers])
+    @ministers = Minister.new(params[:minister])
 
     respond_to do |format|
       if @ministers.save
-        flash[:notice] = 'Ministers was successfully created.'
+        flash[:notice] = 'Minister was successfully created.'
         format.html { redirect_to(@ministers) }
       else
         format.html { render :action => "new" }
@@ -73,8 +75,8 @@ class Admin::MinistersController < ApplicationController
     @ministers = Minister.find(params[:id])
 
     respond_to do |format|
-      if @ministers.update_attributes(params[:ministers])
-        flash[:notice] = 'Ministers was successfully updated.'
+      if @ministers.update_attributes(params[:minister])
+        flash[:notice] = 'Minister was successfully updated.'
         format.html { redirect_to(@ministers) }
       else
         format.html { render :action => "edit" }

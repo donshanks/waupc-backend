@@ -38,7 +38,7 @@
             <td><%= booking.church.physical_city -%></td>
             <td><%= booking.church.minister.full_name_with_title -%></td>
           <% elsif booking.status == 'open' %>
-            <td colspan="4"><%= link_to "Available, click here to reserve", book_reservation_url(booking.id) %></td>
+            <td colspan="4"><%= link_to "Available, click here to reserve", book_reservation_url(booking.id), :target => '_parent' %></td>
           <% elsif booking.status == 'cancelled' %>
             <td colspan="4">The missionary has cancelled this particular deputation</td>
           <% end %>

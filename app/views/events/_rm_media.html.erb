@@ -1,0 +1,14 @@
+<%- cvars = [
+  [ 'ImageWindow', @stream.height ],
+  [ 'ControlPanel', 36 ],
+  [ 'StatusBar'   , 30 ]
+] -%>
+<%- cvars.each do |cvar| -%>
+<object id="RVOCX" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA" width="<%=@stream.width%>" height="<%=cvar[1]%>">
+  <param name="SRC" value="<%=@stream.src%>">
+  <param name="CONTROLS" value="ImageWindow">
+  <param name="CONSOLE" value="one">
+  <param name="AUTOSTART" value="true">
+  <embed src="<%=@stream.src%>" width="<%=@stream.width%>" height="<%=cvar[1]%>" nojava="true" controls="<%=cvar[0]%>" console="one" autostart="true">
+</object>
+<%- end -%>

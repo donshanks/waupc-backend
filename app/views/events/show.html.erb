@@ -1,0 +1,28 @@
+<div class="event-display">
+
+<h1><%= @event.name %></h1>
+<h3><%= @event.tagline %></h3>
+<h4><%= @event.dateline %></h4>
+
+<div style="width:80%;padding:6px 0;border-top:solid #000 2px;border-bottom:solid #000 2px;margin-bottom:10px"><%= @event.desc %></div>
+
+<% unless @event.reg_expires.blank? %>
+  <% if @event.reg_expires.to_f <= Time.new.to_f then %>
+    Online Registration is no longer available.<br />
+    <br />
+  <% else %>
+    Online Registration Expires: <%= @event.reg_expires.strftime('%b %d, %Y') %><br />
+    <%= link_to "Register Online Now!", new_registration_path(:event => @event.key) %><br />
+    <br />
+  <% end %>
+<% end %>
+
+| <% if @event.map_link then %><%= link_to "Map to Event", @event.map_link %> | <% end %>
+  <% if @event.hotel_link then %><%= link_to "Hotel Information", @event.hotel_link %> | <% end %>
+  <% if @event.poster_link then %><%= link_to "Download Poster", @event.poster_link %> | <% end %>
+  <% if @event.brochure_link then %><%= link_to "Download Brochure", @event.brochure_link %> |<% end %>
+  <% if @event.photo_tag then %><%= link_to "Photo Gallery", gallery_event_path(:format => 'html') %> | <% end %>
+  <% if ! @streams.empty? then %><%= link_to "Video Streams", archive_event_path(:format => 'html') %> | <% end %>
+
+</div>
+

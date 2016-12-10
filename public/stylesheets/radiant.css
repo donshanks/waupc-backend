@@ -217,7 +217,7 @@ li.sfHover > a > .sf-sub-indicator {
 .reservation-schedule-one { clear:both }
 .reservation-schedule-one .schedule { width:95% }
 .reservation-schedule-one .schedule th, .reservation-schedule .schedule td { padding:4px }
-.reservation-schedule-one .schedule th { background-color:#223c6f; color:white; font-size:14px }
+.reservation-schedule-one .schedule th { background-color:#441; color:white; font-size:14px }
 .reservation-schedule-one .schedule td { 
     background-color:white;
     color:#000000; 

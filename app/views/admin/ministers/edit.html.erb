@@ -9,115 +9,64 @@
   <% form_for(@ministers) do |f| %>
   <%= f.error_messages %>
 
-  <dl>
+  <table cellpadding="0" cellspacing="0" border="0">
 
-    <dt><%= f.label :status %></dt>
-    <dd><%= f.text_field :status %></dd>
+  <tr>
+    <th><%= f.label :status %></th>
+    <td><%= f.select :status, %w(active inactive) %></td>
+    <th><%= f.label :title %></th>
+    <td><%= f.text_field :title %></td>
+  </tr>
 
-    <dt><%= f.label :firstname %></dt>
-    <dd><%= f.text_field :firstname %></dd>
-    
-    <dt>Primary Address</dt>
-    <dd>&nbsp;</dd>
-    
-    <dt><%= f.label :address %></dt>
-    <dd><%= f.text_field :address %></dd>
-    
-    <dt><%= f.label :city %></dt>
-    <dd><%= f.text_field :city %></dd>
+  <tr>
+    <th><%= f.label :firstname %></th>
+    <td><%= f.text_field :firstname %></td>
+    <th><%= f.label :lastname %></th>
+    <td><%= f.text_field :lastname %></td>
+  </tr>
 
-    <dt><%= f.label :state %></dt>
-    <dd><%= f.text_field :state %></dd>
-    
-    <dt><%= f.label :zip %></dt>
-    <dd><%= f.text_field :zip %></dd>
+  <tr>
+    <th><%= f.label :address %></th>
+    <td><%= f.text_field :address %></td>
+    <th><%= f.label :city %></th>
+    <td><%= f.text_field :city %></td>
+  </tr>
 
-    <dt><%= f.label :title %></dt>
-    <dd><%= f.text_field :title %></dd>
+  <tr>
+    <th><%= f.label :state %></th>
+    <td><%= f.text_field :state %></td>
+    <th><%= f.label :zip %></th>
+    <td><%= f.text_field :zip %></td>
+  </tr>
 
-    <dt><%= f.label :phone_home %></dt>
-    <dd><%= f.text_field :phone_home %></dd>
+  <tr>
+    <th><%= f.label :phone_home %></th>
+    <td><%= f.text_field :phone_home %></td>
+    <th><%= f.label :phone_mobile %></th>
+    <td><%= f.text_field :phone_mobile %></td>
+  </tr>
 
-    <dt><%= f.label :phone_mobile %></dt>
-    <dd><%= f.text_field :phone_mobile %></dd>
+  <tr>
+    <th><%= f.label :phone_fax %></th>
+    <td><%= f.text_field :phone_fax %></td>
+    <th><%= f.label :email %></th>
+    <td><%= f.text_field :email %></td>
+  </tr>
 
-    <dt><%= f.label :phone_fax %></dt>
-    <dd><%= f.text_field :phone_fax %></dd>
+  <tr>
+    <th><%= f.label :notes %></th>
+    <td colspan="3"><%= f.text_area :notes, { :rows => 4 }  %></td>
+  </tr>
 
-    <dt><%= f.label :email %></dt>
-    <dd><%= f.text_field :email %></dd>
+  <tr>
+    <th>&nbsp;</th>
+    <td colspan="3"><%= f.submit "Save Changes"  %></td>
+  </tr>
 
-    <dt><%= f.label :notes %></dt>
-    <dd><%= f.text_field :notes %></dd>
-
-    <dt>&nbsp;</dt>
-    <dd>&nbsp;</dd>
-
-    <dt>&nbsp;</dt>
-    <dd>&nbsp;</dd>
-
-  </dl>
-
-  <% end %>
-  
-</div>
-
-<div class="minister-editing" style="float:left">
-
-  <% form_for(@ministers) do |f| %>
-  <%= f.error_messages %>
-
-  <dl>
-
-    <dt><%= f.label :status %></dt>
-    <dd><%= f.text_field :status %></dd>
-
-    <dt><%= f.label :firstname %></dt>
-    <dd><%= f.text_field :firstname %></dd>
-    
-    <dt><%= f.label :address2_type %></dt>
-    <dd><%= f.text_field :address2_type %></dd>
-    
-    <dt><%= f.label :address2 %></dt>
-    <dd><%= f.text_field :address2 %></dd>
-
-    <dt><%= f.label :city2 %></dt>
-    <dd><%= f.text_field :city2 %></dd>
-
-    <dt><%= f.label :state2 %></dt>
-    <dd><%= f.text_field :state2 %></dd>
-
-    <dt><%= f.label :zip2 %></dt>
-    <dd><%= f.text_field :zip2 %></dd>
-
-    <dt><%= f.label :title %></dt>
-    <dd><%= f.text_field :title %></dd>
-
-    <dt><%= f.label :phone_home %></dt>
-    <dd><%= f.text_field :phone_home %></dd>
-
-    <dt><%= f.label :phone_mobile %></dt>
-    <dd><%= f.text_field :phone_mobile %></dd>
-
-    <dt><%= f.label :phone_fax %></dt>
-    <dd><%= f.text_field :phone_fax %></dd>
-
-    <dt><%= f.label :email %></dt>
-    <dd><%= f.text_field :email %></dd>
-
-    <dt><%= f.label :notes %></dt>
-    <dd><%= f.text_field :notes %></dd>
-
-    <dt>&nbsp;</dt>
-    <dd>&nbsp;</dd>
-
-    <dt>&nbsp;</dt>
-    <dd><%= f.submit "Update" %></dd>
-
-  </dl>
+  </table>
 
   <% end %>
-  
+
 </div>
 
 <br style="clear:both" />

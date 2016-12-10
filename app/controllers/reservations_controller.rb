@@ -1,7 +1,7 @@
 require 'date'
 
 class ReservationsController < ApplicationController
-  layout "fhview"
+  layout "radiant"
   
   def index
     @deputations = Deputation.find(:all, 
@@ -66,7 +66,9 @@ class ReservationsController < ApplicationController
       return
     end
 
+    puts 'a'
     send_notice(params[:booking][:email])
+    puts 'b'
     return
 
   end

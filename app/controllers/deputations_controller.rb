@@ -63,7 +63,7 @@ class DeputationsController < ApplicationController
     end
 
     respond_to do |format|
-      format.xml  { render :xml  => @deputations }
+      format.xml  { render :xml  => js_deputations.to_xml }
       format.js   {
         if !params[:t].nil? then
           #headers['Content-Type'] = 'text/javascript'

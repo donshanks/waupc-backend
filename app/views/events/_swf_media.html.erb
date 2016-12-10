@@ -1,0 +1,17 @@
+<% content_for :page_javascript do %>
+    <script type="text/javascript" src="http://malsup.github.com/chili-1.7.pack.js"></script> 
+    <script type="text/javascript" src="/javascripts/jquery.metadata.v2.js"></script> 
+    <!-- script type="text/javascript" src="/javascripts/swfobject2.js"></script --> 
+    <script type="text/javascript" src="http://github.com/malsup/media/raw/master/jquery.media.js?v0.92"></script>
+<% end %>
+<script type="text/javascript">
+  $(function(){
+    $('a.media').media({
+      src: "<%= @stream.src %>",
+      width: <%= @stream.width %>,
+      height: <%= @stream.height %>,
+      caption: false
+    });  
+  });
+</script>
+<a class="media" href="<%= @stream.src %>"><%= @stream.name %></a> 

@@ -3,6 +3,10 @@
 <% end %>
 
 <div class="admin-minister-profile">
+  
+  <% if flash[:notice] -%>
+    <div class=":notice"><%= flash[:notice] -%></div>
+  <% end -%>
 
   <div class="minister-names">
     <div class="minister-status"><span class="<%=h @minister.status %>"><%=h @minister.status.capitalize() %></span></div>
@@ -29,21 +33,25 @@
       <dt>Twitter:</dt>
       <dd>&nbsp;</dd>
       
-      <% unless @minister.address.nil_or_empty? %>
+      <% unless @minister.address.blank? -%>
+
       <dt>Primary Address: </dt>
       <dd>
-      <%=h @minister.address %><br />
-      <%=h @minister.city %>, <%=h @minister.state %> &nbsp; <%=h @minister.zip %>
+        <%=h @minister.address %><br />
+        <%=h @minister.city %>, <%=h @minister.state %> &nbsp; <%=h @minister.zip %>
       </dd>
-      <% end %>
 
-      <% unless @minister.address2.nil_or_empty? %>
+      <% end -%>
+
+      <% unless @minister.address2.blank? -%>
+
       <dt><%=h @minister.address2_type %> Address</dt>
       <dd>
         <%=h @minister.address2 %>
         <%=h @minister.city2 %>, <%=h @minister.state2 %> &nbsp;<%=h @minister.zip2 %>
       </dd>
-      <% end %>
+
+      <% end -%>
 
       <dt>Roles:</dt>
       <dd>
@@ -53,7 +61,7 @@
       </dd>
 
       <dt>Notes:</dt>
-      <dd><%=h @minister.notes %></dd>
+      <dd><%= ( !@minister.notes.blank? ) ? @minister.notes.gsub(/\n/,'<br />') : '' %></dd>
 
       <dt>&nbsp;</dt>
       <dd>&nbsp;</dd>

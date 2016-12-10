@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"> 
+<html> 
+  <head> 
+    <title>Home Page</title> 
+    <script src="http://www.waupci.org/javascripts/jquery.min.js?1277593154" type="text/javascript"></script> 
+    <script src="http://www.waupci.org/javascripts/jquery-ui.min.js?1277592723" type="text/javascript"></script> 
+    <script src="http://www.waupci.org/javascripts/jquery.cycle.min.js?1277593415" type="text/javascript"></script> 
+    <script src="http://www.waupci.org/javascripts/jquery.corner.js?1278654108" type="text/javascript"></script> 
+    <script src="http://www.waupci.org/javascripts/application.js?1278997473" type="text/javascript"></script> 
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script> 
+    <link href="http://www.waupci.org/stylesheets/application.css?1279089809" media="" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/radiant.css?1279089809" media="" rel="stylesheet" type="text/css" /> 
+  </head> 
+  <body> 
+    <div class="section1">
+      <%= render :partial => 'layouts/radiant_menu' %>
+    </div> 
+    <div class="section3"><img src="http://www.waupci.org/images/trans.png" width="1" height="1" /></div> 
+    <div class="sectionTitle"><img src="http://www.waupci.org/images/washington-district-hdr3.gif" /></div> 
+    <div class="alt-home"> 
+      <div class="alt-left"> 
+        <%= yield :layout %>
+        <br />
+        <br />
+      </div> 
+      <div style="clear:both" /> 
+    </div> 
+    <div class="footer"> 
+        <div class="footer-right">Website by Seraphim Solutions</div> 
+        Washington District United Pentecostal Church International &copy; 2010
+    </div> 
+  </body> 
+  <script src="http://www.waupci.org/javascripts/bottom.js?1278912439" type="text/javascript"></script> 
+  <script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+try { var pageTracker = _gat._getTracker("UA-1732969-1"); pageTracker._setDomainName("none"); pageTracker._setAllowLinker(true); pageTracker._trackPageview(); } catch(err) {}
+</script> 
+</html>

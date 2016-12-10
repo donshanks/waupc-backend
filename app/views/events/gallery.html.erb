@@ -1,0 +1,28 @@
+<% content_for :page_javascript do %>
+  <script type="text/javascript" src="/javascripts/slimbox2.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery.EmbedPicasaGallery.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('#picasa_album').EmbedPicasaGallery('waupci',{
+        loading_animation: '/images/loading.gif',
+        matcher: '<%=@event.photo_tag%>'
+      });
+    });
+  </script>
+<% end %>
+
+<% content_for :page_style do %>
+  <link rel="stylesheet" href="/stylesheets/slimbox2.css" type="text/css" media="screen" />
+<%end %>
+
+<div class="event-display">
+
+  <h1><%= @event.name %></h1><br />
+
+  <div id="picasa_album"></div>
+
+  <%= link_to "Back to event page", display_event_path(:format => 'html') %>
+  <br />
+
+</div>
+

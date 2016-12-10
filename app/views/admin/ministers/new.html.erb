@@ -1,87 +1,75 @@
 <h1>New ministers</h1>
 
+<div class="admin-minister-create" style="float:left">
+
 <% form_for(@ministers) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :bio_id %><br />
-    <%= f.text_field :bio_id %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </p>
-  <p>
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </p>
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  <p>
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </p>
-  <p>
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </p>
-  <p>
-    <%= f.label :address2_type %><br />
-    <%= f.text_field :address2_type %>
-  </p>
-  <p>
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
-  </p>
-  <p>
-    <%= f.label :city2 %><br />
-    <%= f.text_field :city2 %>
-  </p>
-  <p>
-    <%= f.label :state2 %><br />
-    <%= f.text_field :state2 %>
-  </p>
-  <p>
-    <%= f.label :zip2 %><br />
-    <%= f.text_field :zip2 %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :phone_home %><br />
-    <%= f.text_field :phone_home %>
-  </p>
-  <p>
-    <%= f.label :phone_mobile %><br />
-    <%= f.text_field :phone_mobile %>
-  </p>
-  <p>
-    <%= f.label :phone_fax %><br />
-    <%= f.text_field :phone_fax %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :notes %><br />
-    <%= f.text_field :notes %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+  <table cellpadding="0" cellspacing="0" border="0">
+
+  <tr>
+    <th><%= f.label :status %></th>
+    <td><%= f.select :status, %w(active inactive) %></td>
+    <th><%= f.label :title %></th>
+    <td><%= f.text_field :title %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :firstname %></th>
+    <td><%= f.text_field :firstname %></td>
+    <th><%= f.label :lastname %></th>
+    <td><%= f.text_field :lastname %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :address %></th>
+    <td><%= f.text_field :address %></td>
+    <th><%= f.label :city %></th>
+    <td><%= f.text_field :city %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :state %></th>
+    <td><%= f.text_field :state %></td>
+    <th><%= f.label :zip %></th>
+    <td><%= f.text_field :zip %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :phone_home %></th>
+    <td><%= f.text_field :phone_home %></td>
+    <th><%= f.label :phone_mobile %></th>
+    <td><%= f.text_field :phone_mobile %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :phone_fax %></th>
+    <td><%= f.text_field :phone_fax %></td>
+    <th><%= f.label :email %></th>
+    <td><%= f.text_field :email %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :notes %></th>
+    <td colspan="3"><%= f.text_area :notes, { :rows => 4 }  %></td>
+  </tr>
+
+  <tr>
+    <th><%= f.label :bio_id %></th>
+    <td colspan="3"><%= f.text_field :bio_id  %></td>
+  </tr>
+
+  <tr>
+    <th>&nbsp;</th>
+    <td colspan="3"><%= f.submit "Save Changes"  %></td>
+  </tr>
+
+  </table>
+
 <% end %>
+
+</div>
+
+<br style="clear:both" />
 
 <%= link_to 'Back', ministers_path %>

@@ -1,0 +1,19 @@
+<div class="event-display">
+
+<h1><%= @event.name -%></h1>
+<h2 style="margin-top:0">Video Stream Archives</h2>
+
+<div class="archives-table">
+  <ul>
+    <%- if @streams.empty? then -%>
+    <li>None</li>
+    <%- end -%>
+    <%- @streams.each do |stream| -%>
+    <li><%= link_to stream.name, stream_event_path({:format => 'html', :id => stream.id}) %></li>
+    <%- end -%>
+  </ul>
+
+  <%= link_to "Back to event page", display_event_path(:format => 'html') %>
+  <br />
+</div>
+
